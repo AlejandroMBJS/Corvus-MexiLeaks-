@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" class="bg-black text-gray-100">
+<head>
+  <meta charset="UTF-8" />
+  <title>Red de Sobornos Municipales — CORVUS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { mono: ['Fira Code', 'monospace'] },
+        extend: {
+          colors: { accent: '#0ff', link: '#0f0' },
+          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } },
+          animation: { fadeIn: 'fadeIn 1.2s ease-out forwards' },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+</head>
+<body class="font-mono max-w-3xl mx-auto px-4 py-8 leading-relaxed animate-fadeIn">
+  <h1 class="text-accent text-2xl font-bold mb-4">󰙨 Red de Sobornos Municipales</h1>
+  <p><strong>Fecha:</strong> Julio 2025</p>
+
+  <h2 class="text-accent mt-4"> Reportaje</h2>
+  <p>Este reportaje expone vínculos entre contratistas y funcionarios para licitaciones fraudulentas.</p>
+
+  <h2 class="text-accent mt-4"> Evidencias</h2>
+  <ul class="list-disc ml-5 space-y-2">
+    <li><a href="./evidencias/doc1.pdf" class="text-link underline hover:text-accent transition duration-300">Contrato fraudulento (PDF)</a></li>
+  </ul>
+
+  <h2 class="text-accent mt-4"> Torrent / IPFS</h2>
+  <p><a href="./torrents/leak-001.torrent" class="text-link underline hover:text-accent transition duration-300">Descargar Torrent</a></p>
+
+  <h2 class="text-accent mt-4"> Hash SHA-256</h2>
+  <p><code class="bg-gray-800 p-1 rounded">abcdef1234567890...</code></p>
+</body>
+</html>
