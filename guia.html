@@ -1,45 +1,119 @@
 <!DOCTYPE html>
-<html lang="es" class="bg-black text-gray-100">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Guía OPSEC — CORVUS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        fontFamily: { mono: ['Fira Code', 'monospace'] },
-        extend: {
-          colors: { accent: '#0ff', link: '#0f0' },
-          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } },
-          animation: { fadeIn: 'fadeIn 1.2s ease-out forwards' },
-        },
-      },
-    };
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía para Filtrar · Corvus MexiLeaks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .cta-rapid {
+      background: var(--accent);
+      color: #222;
+      border-radius: 24px;
+      font-size: 1.15rem;
+      font-family: var(--font-title);
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
+      text-align: center;
+      margin: 2.2rem auto 1.2rem auto;
+      display: block;
+      text-decoration: none;
+      transition: background .18s, color .18s;
+      box-shadow: 0 2px 8px #0004;
+      letter-spacing: 1px;
+      width: max-content;
+    }
+    .cta-rapid:hover {
+      background: var(--silver);
+      color: #111;
+      box-shadow: 0 2px 16px #000a;
+    }
+    .trust-box {
+      background: var(--card-bg);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 1.2rem 1.5rem;
+      margin: 2.2rem auto 1.2rem auto;
+      max-width: 540px;
+      font-size: 1.09rem;
+      line-height: 1.7;
+      text-align: center;
+      box-shadow: 0 4px 22px #0004;
+      font-family: var(--font-body);
+    }
+    .trust-box strong {
+      color: var(--fg);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    @media (max-width:600px) {
+      .trust-box { padding: 1rem;}
+    }
+  </style>
 </head>
-<body class="font-mono max-w-3xl mx-auto px-4 py-8 leading-relaxed animate-fadeIn relative">
-  <h1 class="text-accent text-2xl font-bold mb-4">
-    󰘧 Guía OPSEC — Envíanos tu noticia de manera anónima y segura
-  </h1>
-  <ol class="list-decimal ml-5 space-y-2">
-    <li>Instala y usa  <strong>Tor Browser</strong> o <strong>Tails OS</strong>.</li>
-    <li>Crea un  <strong>ProtonMail anónimo</strong> sin datos reales.</li>
-    <li>Descarga nuestra  <strong>clave pública PGP</strong> y cifra tu mensaje y evidencias.</li>
-    <li>Limpia todos los metadatos con  <strong>ExifTool</strong> o <strong>MAT2</strong>.</li>
-    <li>Envía la filtración cifrada por ProtonMail usando Tor o Tails.</li>
-    <li>Opcional: también puedes contactarnos vía Signal si no puedes usar correo cifrado.</li>
-  </ol>
-  <p class="mt-6">
-    <a href="./contacto.html" class="text-link underline hover:text-accent transition duration-300">
-       Ver contacto seguro →
-    </a>
-  </p>
-
-  <!-- Call to Action flotante de Signal -->
-  <a href="https://signal.me/#p/TU_NUMERO_O_ENLACE" target="_blank"
-    class="fixed bottom-6 right-6 bg-accent text-black font-bold px-4 py-2 rounded-full shadow-lg hover:bg-link transition duration-300">
-     Envía filtración por Signal
-  </a>
+<body>
+  <div class="topbar">
+    <div class="topbar-title">Corvus MexiLeaks</div>
+    <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">&#9776;</button>
+    <nav id="dropdownMenu" class="dropdown" aria-label="Menú principal">
+      <a href="index.html">Inicio</a>
+      <a href="noticias/">Noticias</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="mirrors.html">Mirrors/Backup</a>
+    </nav>
+  </div>
+  <main>
+    <section class="hero">
+      <div class="hero-title">Guía para Filtrar con Seguridad</div>
+      <div class="hero-desc">
+        Envíanos tu filtración de manera rápida y segura. <br>
+        <a class="cta-rapid" href="https://signal.me/#p/+525512345678" target="_blank">Enviar por Signal ahora</a>
+      </div>
+      <div class="trust-box">
+        <strong>Tu confianza y anonimato son nuestra prioridad.</strong><br>
+        En Corvus MexiLeaks protegemos tu identidad con protocolos de seguridad rigurosos. No almacenamos datos personales, y jamás compartiremos información que ponga en riesgo a nuestras fuentes.
+      </div>
+      <div style="max-width:600px;margin:auto;text-align:left;color:var(--accent);font-size:1.14rem;">
+        <p><b>¿Cómo enviar una filtración segura?</b></p>
+        <ol>
+          <li><b>Elige Signal para máxima privacidad.</b> Es la app recomendada para enviar mensajes cifrados y anónimos a nuestro equipo.</li>
+          <li><b>Prepara tu evidencia.</b> Antes de enviar documentos, fotos o audios, elimina metadatos (autor, ubicación, fecha) y borra datos personales de los archivos.</li>
+          <li><b>Conéctate desde una red privada y confiable.</b> Evita cibercafés o WiFi públicos.</li>
+          <li><b>No incluyas tu nombre real ni datos personales en el mensaje o archivos adjuntos.</b></li>
+          <li><b>Si tienes dudas, consulta esta guía o pregunta por Signal antes de enviar.</b></li>
+        </ol>
+        <p>
+          <span style="color:var(--fg);font-weight:600;">¿Listo para filtrar?</span><br>
+          <a class="cta-rapid" href="https://signal.me/#p/+525512345678" target="_blank">Enviar filtración por Signal</a>
+        </p>
+        <p>
+          También puedes usar nuestro <a href="contacto.html" style="color:var(--silver);">correo seguro</a>.<br>
+          <b>Recuerda:</b> La protección de la fuente es absoluta y garantizada en Corvus MexiLeaks.
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Corvus MexiLeaks · Seguridad y periodismo responsable.
+  </footer>
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('dropdownMenu');
+      menu.classList.toggle('show');
+      if (menu.classList.contains('show')) {
+        document.addEventListener('click', closeMenuOnOutside, {capture:true});
+      }
+    }
+    function closeMenuOnOutside(e) {
+      var menu = document.getElementById('dropdownMenu');
+      var toggle = document.querySelector('.menu-toggle');
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('show');
+        document.removeEventListener('click', closeMenuOnOutside, {capture:true});
+      }
+    }
+  </script>
 </body>
 </html>
