@@ -1,30 +1,57 @@
 <!DOCTYPE html>
-<html lang="es" class="bg-black text-gray-100">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mirrors — CORVUS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        fontFamily: { mono: ['Fira Code', 'monospace'] },
-        extend: {
-          colors: { accent: '#0ff', link: '#0f0' },
-          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } },
-          animation: { fadeIn: 'fadeIn 1.2s ease-out forwards' },
-        },
-      },
-    };
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mirrors y Backups · Corvus MexiLeaks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="font-mono max-w-3xl mx-auto px-4 py-8 leading-relaxed animate-fadeIn">
-  <h1 class="text-accent text-2xl font-bold mb-4"> Mirrors y Hidden Service</h1>
-  <ul class="list-disc ml-5 space-y-2">
-    <li>Main: https://tusite.github.io/</li>
-    <li>Mirror 1: https://mirror.pages.dev/</li>
-    <li>Hidden Service (.onion): http://abcxyz123.onion/</li>
-  </ul>
-  <p class="mt-4"> Si bloquean un dominio, usa Tor para acceder por otro.</p>
+<body>
+  <div class="topbar">
+    <div class="topbar-title">Corvus MexiLeaks</div>
+    <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">&#9776;</button>
+    <nav id="dropdownMenu" class="dropdown" aria-label="Menú principal">
+      <a href="index.html">Inicio</a>
+      <a href="noticias/">Noticias</a>
+      <a href="guia.html">Guía para Filtrar</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+  <main>
+    <section class="hero">
+      <div class="hero-title">Mirrors & Backups</div>
+      <div class="hero-desc">
+        Acceso alternativo y respaldo de Corvus MexiLeaks en caso de censura o caída.
+      </div>
+      <div style="max-width:600px;margin:auto;text-align:left;color:var(--accent);font-size:1.1rem;">
+        <ul>
+          <li><b>Mirror 1:</b> <span style="color:var(--silver);">https://mirror1.corvusmexileaks.org</span></li>
+          <li><b>Mirror 2:</b> <span style="color:var(--silver);">https://tor.corvusmexileaks.org</span></li>
+        </ul>
+        <p>Guarda estas direcciones para consultar la revista en caso de bloqueos.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Corvus MexiLeaks · Seguridad y periodismo responsable.
+  </footer>
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('dropdownMenu');
+      menu.classList.toggle('show');
+      if (menu.classList.contains('show')) {
+        document.addEventListener('click', closeMenuOnOutside, {capture:true});
+      }
+    }
+    function closeMenuOnOutside(e) {
+      var menu = document.getElementById('dropdownMenu');
+      var toggle = document.querySelector('.menu-toggle');
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('show');
+        document.removeEventListener('click', closeMenuOnOutside, {capture:true});
+      }
+    }
+  </script>
 </body>
 </html>
