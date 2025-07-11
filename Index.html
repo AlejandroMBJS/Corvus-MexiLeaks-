@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" class="bg-black text-gray-100">
+<head>
+  <meta charset="UTF-8" />
+  <title>CORVUS — MexiLeaks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { mono: ['Fira Code', 'monospace'] },
+        extend: {
+          colors: { accent: '#0ff', link: '#0f0' },
+          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } },
+          animation: { fadeIn: 'fadeIn 1.2s ease-out forwards' },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+</head>
+<body class="font-mono max-w-3xl mx-auto px-4 py-8 leading-relaxed animate-fadeIn">
+  <header>
+    <h1 class="text-accent text-3xl font-bold mb-2">󰮗 CORVUS — MexiLeaks</h1>
+    <p class="mb-4">Periodismo de investigación. Anónimo. Distribuido.</p>
+    <nav class="flex flex-wrap gap-4 text-link">
+      <a href="./index.html" class="hover:text-accent transition duration-300">󰮗 Inicio</a>
+      <a href="./noticias/" class="hover:text-accent transition duration-300">󰙨 Noticias</a>
+      <a href="./guia.html" class="hover:text-accent transition duration-300">󰘧 Guía OPSEC</a>
+      <a href="./contacto.html" class="hover:text-accent transition duration-300"> Contacto</a>
+      <a href="./mirrors.html" class="hover:text-accent transition duration-300"> Mirrors</a>
+    </nav>
+  </header>
+
+  <main class="mt-8">
+    <h2 class="text-accent text-xl font-semibold mb-4"> Última noticia</h2>
+    <div id="ultima-noticia" class="mt-4"></div>
+    <p class="mt-6">
+      <a href="./guia.html" class="text-link underline hover:text-accent transition duration-300">󰘧 Aprende a filtrar de forma segura →</a>
+    </p>
+  </main>
+
+  <script>
+    fetch('./noticias/noticias.json')
+      .then((response) => response.json())
+      .then((data) => {
+        const ultima = data.sort((a, b) => b.id - a.id)[0];
+        document.getElementById('ultima-noticia').innerHTML =
+          `<a href="${ultima.ruta}" class="text-link hover:text-accent transition duration-300">${ultima.titulo}</a>`;
+      })
+      .catch((error) => console.error('Error cargando noticias.json', error));
+  </script>
+</body>
+</html>
