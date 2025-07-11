@@ -1,53 +1,223 @@
 <!DOCTYPE html>
-<html lang="es" class="bg-black text-gray-100">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>CORVUS — MexiLeaks</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        fontFamily: { mono: ['Fira Code', 'monospace'] },
-        extend: {
-          colors: { accent: '#0ff', link: '#0f0' },
-          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } },
-          animation: { fadeIn: 'fadeIn 1.2s ease-out forwards' },
-        },
-      },
-    };
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corvus MexiLeaks · Revista de Periodismo Independiente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <style>
+    /* Ajustes extra para la portada sin visuales */
+    .main-news {
+      max-width: 900px;
+      margin: 3.2rem auto 2rem auto;
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px #000c;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      color: var(--fg);
+    }
+    .main-news-content {
+      padding: 2rem 2rem 1.5rem 2rem;
+    }
+    .main-news-title {
+      font-family: var(--font-title);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--silver);
+      margin-bottom: 0.7rem;
+      text-shadow: 0 8px 32px #0009;
+      letter-spacing: 2px;
+    }
+    .main-news-summary {
+      font-size: 1.18rem;
+      color: var(--accent);
+      margin-bottom: 1.1rem;
+      line-height: 1.7;
+    }
+    .main-news-link {
+      background: var(--accent);
+      color: #222;
+      padding: 0.7rem 2rem;
+      border-radius: 30px;
+      font-size: 1.07rem;
+      font-family: var(--font-title);
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .18s, color .18s;
+      box-shadow: 0 2px 8px #0004;
+      letter-spacing: 1.1px;
+      display: inline-block;
+    }
+    .main-news-link:hover {
+      background: var(--silver);
+      color: #111;
+      box-shadow: 0 2px 16px #000a;
+    }
+    .other-news-row {
+      max-width: 900px;
+      margin: 0 auto 2.5rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 1.5rem;
+    }
+    .other-news-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 6px 24px #0009;
+      border: 1px solid var(--border);
+      color: var(--fg);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .18s;
+      padding: 1.1rem 1rem 0.8rem 1rem;
+      min-height: 180px;
+    }
+    .other-news-title {
+      font-family: var(--font-title);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--silver);
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+    .other-news-summary {
+      color: #cccccc;
+      font-size: 0.97rem;
+      margin-bottom: 0.8rem;
+    }
+    .other-news-link {
+      font-family: var(--font-title);
+      color: var(--accent);
+      font-size: 0.97rem;
+      text-decoration: underline;
+      margin-top: auto;
+      transition: color .14s;
+    }
+    .other-news-link:hover {
+      color: #fff;
+    }
+    @media (max-width:1100px) {
+      .main-news { max-width: 98vw;}
+      .other-news-row { max-width: 98vw;}
+    }
+    @media (max-width:900px) {
+      .other-news-row { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    }
+    @media (max-width:600px) {
+      .other-news-row { grid-template-columns: 1fr; gap: 1rem;}
+      .main-news-title { font-size: 1.3rem;}
+      .main-news-content { padding: 1.1rem;}
+      .topbar-title { font-size: 1.1rem;}
+      .dropdown { right: 0.6rem; min-width: 140px;}
+    }
+  </style>
 </head>
-<body class="font-mono max-w-3xl mx-auto px-4 py-8 leading-relaxed animate-fadeIn">
-  <header>
-    <h1 class="text-accent text-3xl font-bold mb-2">󰮗 CORVUS — MexiLeaks</h1>
-    <p class="mb-4">Periodismo de investigación. Anónimo. Distribuido.</p>
-    <nav class="flex flex-wrap gap-4 text-link">
-      <a href="./index.html" class="hover:text-accent transition duration-300">󰮗 Inicio</a>
-      <a href="./noticias/" class="hover:text-accent transition duration-300">󰙨 Noticias</a>
-      <a href="./guia.html" class="hover:text-accent transition duration-300">󰘧 Guía OPSEC</a>
-      <a href="./contacto.html" class="hover:text-accent transition duration-300"> Contacto</a>
-      <a href="./mirrors.html" class="hover:text-accent transition duration-300"> Mirrors</a>
+<body>
+  <div class="topbar">
+    <div class="topbar-title">Corvus MexiLeaks</div>
+    <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
+      &#9776;
+    </button>
+    <nav id="dropdownMenu" class="dropdown" aria-label="Menú principal">
+      <a href="noticias/">Noticias</a>
+      <a href="guia.html">Guía para Filtrar</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="mirrors.html">Mirrors/Backup</a>
     </nav>
-  </header>
-
-  <main class="mt-8">
-    <h2 class="text-accent text-xl font-semibold mb-4"> Última noticia</h2>
-    <div id="ultima-noticia" class="mt-4"></div>
-    <p class="mt-6">
-      <a href="./guia.html" class="text-link underline hover:text-accent transition duration-300">󰘧 Aprende a filtrar de forma segura →</a>
-    </p>
+  </div>
+  <main>
+    <section class="hero">
+      <div class="hero-title">Revista Digital de Filtraciones Ciudadanas</div>
+      <div class="hero-desc">
+        <span class="hero-emphasis">Corvus MexiLeaks</span> es el referente en periodismo de investigación y filtraciones ciudadanas.<br>
+        Publicamos <b>reportajes de alto impacto</b> y protegemos a nuestras fuentes. <br>
+        <a href="guia.html" style="color:var(--silver);text-decoration:underline;">Guía de Seguridad</a> para proteger tu identidad y tu evidencia.
+      </div>
+      <div class="cta-buttons">
+        <a href="guia.html">Cómo filtrar de forma segura</a>
+        <a href="contacto.html">Enviar filtración</a>
+      </div>
+    </section>
+    <div id="mainNewsContainer"></div>
+    <div class="other-news-row" id="otherNewsContainer"></div>
   </main>
-
+  <footer>
+    &copy; 2025 Corvus MexiLeaks · Revista digital independiente<br>
+    Transparencia, seguridad y periodismo responsable.
+  </footer>
   <script>
-    fetch('./noticias/noticias.json')
-      .then((response) => response.json())
-      .then((data) => {
-        const ultima = data.sort((a, b) => b.id - a.id)[0];
-        document.getElementById('ultima-noticia').innerHTML =
-          `<a href="${ultima.ruta}" class="text-link hover:text-accent transition duration-300">${ultima.titulo}</a>`;
-      })
-      .catch((error) => console.error('Error cargando noticias.json', error));
+    // Menú desplegable
+    function toggleMenu() {
+      var menu = document.getElementById('dropdownMenu');
+      menu.classList.toggle('show');
+      if (menu.classList.contains('show')) {
+        document.addEventListener('click', closeMenuOnOutside, {capture:true});
+      }
+    }
+    function closeMenuOnOutside(e) {
+      var menu = document.getElementById('dropdownMenu');
+      var toggle = document.querySelector('.menu-toggle');
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('show');
+        document.removeEventListener('click', closeMenuOnOutside, {capture:true});
+      }
+    }
+
+    // Ejemplo de noticias (sin visuales)
+    const noticias = [
+      {
+        title: "Investigación Especial: Contratos y transferencias bajo la lupa",
+        summary: "Documentos filtrados de manera anónima revelan posibles irregularidades en la adjudicación de contratos públicos. Analizamos cifras, testimonios y el impacto en la sociedad.",
+        link: "noticias/investigacion-contratos.html"
+      },
+      {
+        title: "Noticia de ejemplo 1: Operación confidencial en sector salud",
+        summary: "Filtraciones muestran compras irregulares en hospitales públicos. Descubre cómo se realizó la investigación.",
+        link: "noticias/ejemplo1.html"
+      },
+      {
+        title: "Noticia de ejemplo 2: Filtración de audio compromete a funcionario",
+        summary: "Un audio anónimo revela presiones por contratos. El análisis completo aquí.",
+        link: "noticias/ejemplo2.html"
+      },
+      {
+        title: "Noticia de ejemplo 3: Análisis de documentos bancarios",
+        summary: "Datos filtrados muestran movimientos bancarios sospechosos en una dependencia.",
+        link: "noticias/ejemplo3.html"
+      },
+      {
+        title: "Noticia de ejemplo 4: Testimonios anónimos sobre corrupción local",
+        summary: "Ciudadanos denuncian prácticas corruptas en gobiernos municipales.",
+        link: "noticias/ejemplo4.html"
+      }
+    ];
+
+    // Carga la noticia principal y las siguientes 4 debajo
+    document.addEventListener('DOMContentLoaded', function() {
+      const mainNews = noticias[0];
+      document.getElementById('mainNewsContainer').innerHTML = `
+        <section class="main-news">
+          <div class="main-news-content">
+            <div class="main-news-title">${mainNews.title}</div>
+            <div class="main-news-summary">${mainNews.summary}</div>
+            <a class="main-news-link" href="${mainNews.link}">Leer reportaje principal</a>
+          </div>
+        </section>
+      `;
+      const otherNews = noticias.slice(1,5);
+      document.getElementById('otherNewsContainer').innerHTML = otherNews.map(n => `
+        <div class="other-news-card">
+          <div class="other-news-title">${n.title}</div>
+          <div class="other-news-summary">${n.summary}</div>
+          <a class="other-news-link" href="${n.link}">Leer más</a>
+        </div>
+      `).join('');
+    });
   </script>
 </body>
 </html>
