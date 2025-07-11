@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" class="bg-black text-gray-100">
+<head>
+  <meta charset="UTF-8">
+  <title>Mirrors — CORVUS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { mono: ['Fira Code', 'monospace'] },
+        extend: {
+          colors: { accent: '#0ff', link: '#0f0' },
+          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } },
+          animation: { fadeIn: 'fadeIn 1.2s ease-out forwards' },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body class="font-mono max-w-3xl mx-auto px-4 py-8 leading-relaxed animate-fadeIn">
+  <h1 class="text-accent text-2xl font-bold mb-4"> Mirrors y Hidden Service</h1>
+  <ul class="list-disc ml-5 space-y-2">
+    <li>Main: https://tusite.github.io/</li>
+    <li>Mirror 1: https://mirror.pages.dev/</li>
+    <li>Hidden Service (.onion): http://abcxyz123.onion/</li>
+  </ul>
+  <p class="mt-4"> Si bloquean un dominio, usa Tor para acceder por otro.</p>
+</body>
+</html>
