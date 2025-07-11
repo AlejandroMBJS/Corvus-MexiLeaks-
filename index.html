@@ -3,220 +3,443 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Corvus MexiLeaks · Revista de Periodismo Independiente</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <title>Corvus MexiLeaks · Periodismo de Investigación Independiente</title>
+  <meta name="description" content="Corvus MexiLeaks es el referente en periodismo de investigación y filtraciones ciudadanas en México y América Latina. Protegemos a nuestras fuentes y exponemos la corrupción.">
   <link rel="stylesheet" href="assets/style.css">
-  <style>
-    /* Ajustes extra para la portada sin visuales */
-    .main-news {
-      max-width: 900px;
-      margin: 3.2rem auto 2rem auto;
-      background: var(--card-bg);
-      border-radius: 18px;
-      box-shadow: 0 8px 32px #000c;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      color: var(--fg);
-    }
-    .main-news-content {
-      padding: 2rem 2rem 1.5rem 2rem;
-    }
-    .main-news-title {
-      font-family: var(--font-title);
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--silver);
-      margin-bottom: 0.7rem;
-      text-shadow: 0 8px 32px #0009;
-      letter-spacing: 2px;
-    }
-    .main-news-summary {
-      font-size: 1.18rem;
-      color: var(--accent);
-      margin-bottom: 1.1rem;
-      line-height: 1.7;
-    }
-    .main-news-link {
-      background: var(--accent);
-      color: #222;
-      padding: 0.7rem 2rem;
-      border-radius: 30px;
-      font-size: 1.07rem;
-      font-family: var(--font-title);
-      font-weight: 700;
-      text-decoration: none;
-      transition: background .18s, color .18s;
-      box-shadow: 0 2px 8px #0004;
-      letter-spacing: 1.1px;
-      display: inline-block;
-    }
-    .main-news-link:hover {
-      background: var(--silver);
-      color: #111;
-      box-shadow: 0 2px 16px #000a;
-    }
-    .other-news-row {
-      max-width: 900px;
-      margin: 0 auto 2.5rem auto;
-      padding: 0 1rem;
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 1.5rem;
-    }
-    .other-news-card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      box-shadow: 0 6px 24px #0009;
-      border: 1px solid var(--border);
-      color: var(--fg);
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow .18s;
-      padding: 1.1rem 1rem 0.8rem 1rem;
-      min-height: 180px;
-    }
-    .other-news-title {
-      font-family: var(--font-title);
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: var(--silver);
-      margin-bottom: 0.3rem;
-      line-height: 1.2;
-    }
-    .other-news-summary {
-      color: #cccccc;
-      font-size: 0.97rem;
-      margin-bottom: 0.8rem;
-    }
-    .other-news-link {
-      font-family: var(--font-title);
-      color: var(--accent);
-      font-size: 0.97rem;
-      text-decoration: underline;
-      margin-top: auto;
-      transition: color .14s;
-    }
-    .other-news-link:hover {
-      color: #fff;
-    }
-    @media (max-width:1100px) {
-      .main-news { max-width: 98vw;}
-      .other-news-row { max-width: 98vw;}
-    }
-    @media (max-width:900px) {
-      .other-news-row { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    }
-    @media (max-width:600px) {
-      .other-news-row { grid-template-columns: 1fr; gap: 1rem;}
-      .main-news-title { font-size: 1.3rem;}
-      .main-news-content { padding: 1.1rem;}
-      .topbar-title { font-size: 1.1rem;}
-      .dropdown { right: 0.6rem; min-width: 140px;}
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-  <div class="topbar">
-    <div class="topbar-title">Corvus MexiLeaks</div>
-    <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
-      &#9776;
-    </button>
-    <nav id="dropdownMenu" class="dropdown" aria-label="Menú principal">
-      <a href="noticias/">Noticias</a>
-      <a href="guia.html">Guía para Filtrar</a>
-      <a href="contacto.html">Contacto</a>
-      <a href="mirrors.html">Mirrors/Backup</a>
-    </nav>
-  </div>
-  <main>
-    <section class="hero">
-      <div class="hero-title">Revista Digital de Filtraciones Ciudadanas</div>
-      <div class="hero-desc">
-        <span class="hero-emphasis">Corvus MexiLeaks</span> es el referente en periodismo de investigación y filtraciones ciudadanas.<br>
-        Publicamos <b>reportajes de alto impacto</b> y protegemos a nuestras fuentes. <br>
-        <a href="guia.html" style="color:var(--silver);text-decoration:underline;">Guía de Seguridad</a> para proteger tu identidad y tu evidencia.
+  <!-- Navigation -->
+  <nav class="topbar" id="topbar">
+    <div class="topbar-container">
+      <a href="index.html" class="topbar-brand">
+        <span class="brand-icon">󰈸</span>
+        <span class="brand-text">Corvus MexiLeaks</span>
+      </a>
+      
+      <div class="nav-desktop">
+        <a href="noticias/" class="nav-link">
+          <span>󰎕</span>
+          Investigaciones
+        </a>
+        <a href="guia.html" class="nav-link">
+          <span>󰒃</span>
+          Guía Segura
+        </a>
+        <a href="contacto.html" class="nav-link">
+          <span>󰍡</span>
+          Contacto
+        </a>
+        <a href="mirrors.html" class="nav-link">
+          <span>󰐃</span>
+          Mirrors
+        </a>
+        <a href="contacto.html" class="nav-cta">
+          <span>󰒃</span>
+          Filtrar Ahora
+        </a>
       </div>
-      <div class="cta-buttons">
-        <a href="guia.html">Cómo filtrar de forma segura</a>
-        <a href="contacto.html">Enviar filtración</a>
+      
+      <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+        <span id="menu-icon">󰍉</span>
+      </button>
+    </div>
+    
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="noticias/" class="nav-link">
+        <span>󰎕</span>
+        Investigaciones
+      </a>
+      <a href="guia.html" class="nav-link">
+        <span>󰒃</span>
+        Guía Segura
+      </a>
+      <a href="contacto.html" class="nav-link">
+        <span>󰍡</span>
+        Contacto
+      </a>
+      <a href="mirrors.html" class="nav-link">
+        <span>󰐃</span>
+        Mirrors
+      </a>
+      <a href="contacto.html" class="nav-cta">
+        <span>󰒃</span>
+        Filtrar Ahora
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">
+        <span>󰈸</span>
+        Periodismo Independiente
+      </div>
+      
+      <h1 class="hero-title">
+        Exponemos la Verdad,<br>
+        Protegemos las Fuentes
+      </h1>
+      
+      <p class="hero-subtitle">
+        Corvus MexiLeaks es el medio de investigación líder en México y América Latina. 
+        Publicamos filtraciones verificadas que exponen corrupción, fraudes y abusos de poder, 
+        garantizando siempre el anonimato de nuestras fuentes.
+      </p>
+      
+      <div class="hero-actions">
+        <a href="guia.html" class="btn btn-primary">
+          <span>󰒃</span>
+          Enviar Filtración Segura
+        </a>
+        <a href="noticias/" class="btn btn-secondary">
+          <span>󰎕</span>
+          Ver Investigaciones
+        </a>
+      </div>
+      
+      <div class="trust-indicators">
+        <div class="trust-card">
+          <span class="trust-icon">󰒃</span>
+          <h3 class="trust-title">100% Anónimo</h3>
+          <p class="trust-desc">Protección absoluta de la identidad de nuestras fuentes con tecnología de cifrado avanzado</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">󰈸</span>
+          <h3 class="trust-title">Verificación Rigurosa</h3>
+          <p class="trust-desc">Cada filtración pasa por un proceso exhaustivo de verificación y análisis forense</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">󰐃</span>
+          <h3 class="trust-title">Imposible de Censurar</h3>
+          <p class="trust-desc">Red distribuida de mirrors y backups que garantiza acceso permanente a la información</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-icon">󰍡</span>
+          <h3 class="trust-title">Impacto Real</h3>
+          <p class="trust-desc">Nuestras investigaciones han generado cambios significativos en políticas públicas</p>
+        </div>
       </div>
     </section>
-    <div id="mainNewsContainer"></div>
-    <div class="other-news-row" id="otherNewsContainer"></div>
+
+    <!-- Featured News Section -->
+    <section class="news-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span class="section-icon">󰎕</span>
+          Investigaciones Destacadas
+        </h2>
+        <a href="noticias/" class="view-all">
+          Ver todas las investigaciones
+          <span>󰁔</span>
+        </a>
+      </div>
+      
+      <div class="featured-news">
+        <article class="main-story">
+          <div class="story-image">
+            <span class="story-placeholder">󰈸</span>
+          </div>
+          <div class="story-content">
+            <div class="story-meta">
+              <span class="story-category">Exclusiva</span>
+              <span>󰃭 15 de Enero, 2025</span>
+              <span>󰀉 Redacción Corvus</span>
+            </div>
+            <h3 class="story-title">Red de Sobornos Municipales: La Filtración que Cambió Todo</h3>
+            <p class="story-excerpt">
+              Documentos internos revelan una red de corrupción que involucra a más de 20 funcionarios 
+              municipales en contratos millonarios. La investigación incluye audios, transferencias 
+              bancarias y testimonios protegidos que exponen el esquema completo.
+            </p>
+            <a href="noticias/2025/caso-001/index.html" class="story-link">
+              Leer investigación completa
+              <span>󰁔</span>
+            </a>
+          </div>
+        </article>
+        
+        <div class="secondary-stories">
+          <article class="secondary-story">
+            <div class="story-meta">
+              <span class="story-category">Análisis</span>
+              <span>󰃭 12 de Enero, 2025</span>
+            </div>
+            <h3 class="story-title">Contratos Fantasma en el Sector Salud</h3>
+            <p class="story-excerpt">
+              Filtración revela compras irregulares por 500 millones de pesos en hospitales públicos.
+            </p>
+            <a href="noticias/investigacion-contratos.html" class="story-link">
+              Leer más
+              <span>󰁔</span>
+            </a>
+          </article>
+          
+          <article class="secondary-story">
+            <div class="story-meta">
+              <span class="story-category">Exclusiva</span>
+              <span>󰃭 10 de Enero, 2025</span>
+            </div>
+            <h3 class="story-title">Audio Compromete a Alto Funcionario</h3>
+            <p class="story-excerpt">
+              Grabación filtrada revela presiones para adjudicar contratos a empresas específicas.
+            </p>
+            <a href="#" class="story-link">
+              Leer más
+              <span>󰁔</span>
+            </a>
+          </article>
+          
+          <article class="secondary-story">
+            <div class="story-meta">
+              <span class="story-category">Investigación</span>
+              <span>󰃭 8 de Enero, 2025</span>
+            </div>
+            <h3 class="story-title">Movimientos Bancarios Sospechosos</h3>
+            <p class="story-excerpt">
+              Análisis forense de transferencias revela patrones de lavado de dinero en dependencias.
+            </p>
+            <a href="#" class="story-link">
+              Leer más
+              <span>󰁔</span>
+            </a>
+          </article>
+        </div>
+      </div>
+      
+      <div class="news-grid" id="news-grid">
+        <!-- Las noticias se cargarán dinámicamente aquí -->
+      </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+      <div class="security-content">
+        <span class="security-icon">󰒃</span>
+        <h2 class="security-title">Tu Seguridad es Nuestra Prioridad</h2>
+        <p class="security-desc">
+          Utilizamos los más altos estándares de seguridad digital para proteger a nuestras fuentes. 
+          Nunca almacenamos datos personales y empleamos cifrado de extremo a extremo en todas nuestras comunicaciones.
+        </p>
+        
+        <div class="security-features">
+          <div class="security-feature">
+            <span class="security-feature-icon">󰒃</span>
+            <span class="security-feature-text">Cifrado PGP</span>
+          </div>
+          <div class="security-feature">
+            <span class="security-feature-icon">󰖂</span>
+            <span class="security-feature-text">Red Tor</span>
+          </div>
+          <div class="security-feature">
+            <span class="security-feature-icon">󰍁</span>
+            <span class="security-feature-text">Signal Seguro</span>
+          </div>
+          <div class="security-feature">
+            <span class="security-feature-icon">󰐃</span>
+            <span class="security-feature-text">Mirrors Distribuidos</span>
+          </div>
+        </div>
+        
+        <div class="hero-actions" style="margin-top: 2rem;">
+          <a href="guia.html" class="btn btn-primary">
+            <span>󰒃</span>
+            Guía de Seguridad
+          </a>
+          <a href="contacto.html" class="btn btn-secondary">
+            <span>󰍡</span>
+            Contacto Seguro
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Corvus MexiLeaks · Revista digital independiente<br>
-    Transparencia, seguridad y periodismo responsable.
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>
+          <span>󰈸</span>
+          Corvus MexiLeaks
+        </h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          Periodismo de investigación independiente. Exponemos la corrupción, protegemos las fuentes.
+        </p>
+        <div style="display: flex; gap: 1rem;">
+          <a href="contacto.html" style="color: var(--accent-primary);">
+            <span>󰍡</span>
+          </a>
+          <a href="mirrors.html" style="color: var(--accent-primary);">
+            <span>󰐃</span>
+          </a>
+          <a href="guia.html" style="color: var(--accent-primary);">
+            <span>󰒃</span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>
+          <span>󰎕</span>
+          Investigaciones
+        </h3>
+        <ul>
+          <li><a href="noticias/">󰁔 Todas las investigaciones</a></li>
+          <li><a href="noticias/2025/caso-001/index.html">󰁔 Caso 001: Red de Sobornos</a></li>
+          <li><a href="noticias/investigacion-contratos.html">󰁔 Contratos Irregulares</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>
+          <span>󰒃</span>
+          Seguridad
+        </h3>
+        <ul>
+          <li><a href="guia.html">󰁔 Guía para filtrar</a></li>
+          <li><a href="contacto.html">󰁔 Contacto seguro</a></li>
+          <li><a href="assets/pgp-key.asc">󰁔 Clave PGP pública</a></li>
+          <li><a href="mirrors.html">󰁔 Mirrors y backups</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>
+          <span>󰍡</span>
+          Contacto
+        </h3>
+        <ul>
+          <li><a href="mailto:filtraciones@corvusmexileaks.org">󰁔 Email seguro</a></li>
+          <li><a href="https://signal.me/#p/+525512345678">󰁔 Signal</a></li>
+          <li><a href="contacto.html">󰁔 Otras opciones</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Corvus MexiLeaks. Periodismo independiente y transparente.</p>
+      <p>Protegemos a nuestras fuentes. Exponemos la verdad. Imposible de silenciar.</p>
+    </div>
   </footer>
+
   <script>
-    // Menú desplegable
-    function toggleMenu() {
-      var menu = document.getElementById('dropdownMenu');
-      menu.classList.toggle('show');
-      if (menu.classList.contains('show')) {
-        document.addEventListener('click', closeMenuOnOutside, {capture:true});
-      }
-    }
-    function closeMenuOnOutside(e) {
-      var menu = document.getElementById('dropdownMenu');
-      var toggle = document.querySelector('.menu-toggle');
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.classList.remove('show');
-        document.removeEventListener('click', closeMenuOnOutside, {capture:true});
-      }
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('nav-mobile');
+      const menuIcon = document.getElementById('menu-icon');
+      
+      mobileNav.classList.toggle('show');
+      menuIcon.textContent = mobileNav.classList.contains('show') ? '󰅖' : '󰍉';
     }
 
-    // Ejemplo de noticias (sin visuales)
-    const noticias = [
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const mobileNav = document.getElementById('nav-mobile');
+      const menuToggle = document.querySelector('.menu-toggle');
+      
+      if (!mobileNav.contains(event.target) && !menuToggle.contains(event.target)) {
+        mobileNav.classList.remove('show');
+        document.getElementById('menu-icon').textContent = '󰍉';
+      }
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const topbar = document.getElementById('topbar');
+      if (window.scrollY > 100) {
+        topbar.style.background = 'rgba(17, 19, 24, 0.98)';
+        topbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+      } else {
+        topbar.style.background = 'rgba(17, 19, 24, 0.95)';
+        topbar.style.boxShadow = 'none';
+      }
+    });
+
+    // Load additional news dynamically
+    const additionalNews = [
       {
-        title: "Investigación Especial: Contratos y transferencias bajo la lupa",
-        summary: "Documentos filtrados de manera anónima revelan posibles irregularidades en la adjudicación de contratos públicos. Analizamos cifras, testimonios y el impacto en la sociedad.",
-        link: "noticias/investigacion-contratos.html"
+        title: "Testimonios Anónimos Revelan Corrupción Local",
+        excerpt: "Ciudadanos denuncian prácticas corruptas en gobiernos municipales a través de testimonios protegidos.",
+        category: "Denuncia",
+        date: "5 de Enero, 2025",
+        link: "#"
       },
       {
-        title: "Noticia de ejemplo 1: Operación confidencial en sector salud",
-        summary: "Filtraciones muestran compras irregulares en hospitales públicos. Descubre cómo se realizó la investigación.",
-        link: "noticias/ejemplo1.html"
+        title: "Análisis Forense de Documentos Bancarios",
+        excerpt: "Datos filtrados muestran movimientos bancarios sospechosos en múltiples dependencias gubernamentales.",
+        category: "Análisis",
+        date: "3 de Enero, 2025",
+        link: "#"
       },
       {
-        title: "Noticia de ejemplo 2: Filtración de audio compromete a funcionario",
-        summary: "Un audio anónimo revela presiones por contratos. El análisis completo aquí.",
-        link: "noticias/ejemplo2.html"
-      },
-      {
-        title: "Noticia de ejemplo 3: Análisis de documentos bancarios",
-        summary: "Datos filtrados muestran movimientos bancarios sospechosos en una dependencia.",
-        link: "noticias/ejemplo3.html"
-      },
-      {
-        title: "Noticia de ejemplo 4: Testimonios anónimos sobre corrupción local",
-        summary: "Ciudadanos denuncian prácticas corruptas en gobiernos municipales.",
-        link: "noticias/ejemplo4.html"
+        title: "Operación Encubierta en Sector Educativo",
+        excerpt: "Filtración revela irregularidades en la asignación de recursos para programas educativos.",
+        category: "Exclusiva",
+        date: "1 de Enero, 2025",
+        link: "#"
       }
     ];
 
-    // Carga la noticia principal y las siguientes 4 debajo
-    document.addEventListener('DOMContentLoaded', function() {
-      const mainNews = noticias[0];
-      document.getElementById('mainNewsContainer').innerHTML = `
-        <section class="main-news">
-          <div class="main-news-content">
-            <div class="main-news-title">${mainNews.title}</div>
-            <div class="main-news-summary">${mainNews.summary}</div>
-            <a class="main-news-link" href="${mainNews.link}">Leer reportaje principal</a>
+    // Render additional news
+    function renderAdditionalNews() {
+      const newsGrid = document.getElementById('news-grid');
+      
+      additionalNews.forEach(news => {
+        const newsCard = document.createElement('article');
+        newsCard.className = 'news-card';
+        newsCard.innerHTML = `
+          <div class="story-image">
+            <span class="story-placeholder">󰈸</span>
           </div>
-        </section>
-      `;
-      const otherNews = noticias.slice(1,5);
-      document.getElementById('otherNewsContainer').innerHTML = otherNews.map(n => `
-        <div class="other-news-card">
-          <div class="other-news-title">${n.title}</div>
-          <div class="other-news-summary">${n.summary}</div>
-          <a class="other-news-link" href="${n.link}">Leer más</a>
-        </div>
-      `).join('');
+          <div class="story-content">
+            <div class="story-meta">
+              <span class="story-category">${news.category}</span>
+              <span>󰃭 ${news.date}</span>
+            </div>
+            <h3 class="story-title">${news.title}</h3>
+            <p class="story-excerpt">${news.excerpt}</p>
+            <a href="${news.link}" class="story-link">
+              Leer investigación
+              <span>󰁔</span>
+            </a>
+          </div>
+        `;
+        newsGrid.appendChild(newsCard);
+      });
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      renderAdditionalNews();
+      
+      // Add loading animation to buttons
+      document.querySelectorAll('.btn, .story-link').forEach(button => {
+        button.addEventListener('click', function(e) {
+          if (this.href && this.href !== '#') {
+            this.classList.add('loading');
+            setTimeout(() => {
+              this.classList.remove('loading');
+            }, 1000);
+          }
+        });
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
   </script>
 </body>

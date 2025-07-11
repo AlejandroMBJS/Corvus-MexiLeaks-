@@ -4,56 +4,710 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto Seguro · Corvus MexiLeaks</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Contacta con Corvus MexiLeaks de forma completamente segura y anónima. Múltiples canales de comunicación cifrada.">
   <link rel="stylesheet" href="assets/style.css">
+  <style>
+    .contact-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .contact-hero {
+      text-align: center;
+      margin-bottom: 4rem;
+      padding: 3rem 0;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-primary);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+      transform: translateX(-50%);
+      z-index: -1;
+    }
+    
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .contact-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .contact-method {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-method:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-primary);
+    }
+    
+    .contact-method.primary {
+      border-color: var(--success);
+      background: linear-gradient(135deg, var(--bg-card), rgba(0, 255, 136, 0.05));
+    }
+    
+    .contact-method.primary::before {
+      content: 'Recomendado';
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--success);
+      color: var(--bg-primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    .method-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    
+    .contact-method.primary .method-icon {
+      color: var(--success);
+    }
+    
+    .contact-method:not(.primary) .method-icon {
+      color: var(--accent-primary);
+    }
+    
+    .method-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    
+    .method-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    
+    .method-details {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .method-contact {
+      font-family: 'Courier New', monospace;
+      font-size: 1.125rem;
+      color: var(--accent-primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      word-break: break-all;
+    }
+    
+    .method-note {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    
+    .method-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      border-radius: var(--radius-xl);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      font-size: 1.125rem;
+    }
+    
+    .contact-method.primary .method-action {
+      background: linear-gradient(135deg, var(--success), #00cc66);
+      color: var(--bg-primary);
+    }
+    
+    .contact-method:not(.primary) .method-action {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: var(--bg-primary);
+    }
+    
+    .method-action:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .security-notice {
+      background: var(--bg-secondary);
+      border: 1px solid var(--success);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin: 3rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .security-notice::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+      animation: rotate 20s linear infinite;
+    }
+    
+    .security-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .security-icon {
+      font-size: 4rem;
+      color: var(--success);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    
+    .security-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--success);
+    }
+    
+    .security-description {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+    }
+    
+    .security-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .security-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-primary);
+    }
+    
+    .security-feature-icon {
+      color: var(--success);
+      font-size: 1.25rem;
+    }
+    
+    .security-feature-text {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    
+    .faq-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin: 3rem 0;
+    }
+    
+    .faq-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .faq-item {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-primary);
+    }
+    
+    .faq-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .faq-question {
+      font-weight: 700;
+      font-size: 1.125rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .faq-answer {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding-left: 1.5rem;
+    }
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @media (max-width: 768px) {
+      .contact-container {
+        padding: 1rem;
+      }
+      
+      .contact-title {
+        font-size: 2rem;
+      }
+      
+      .contact-methods {
+        grid-template-columns: 1fr;
+      }
+      
+      .security-features {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-method {
+        padding: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="topbar-title">Corvus MexiLeaks</div>
-    <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">&#9776;</button>
-    <nav id="dropdownMenu" class="dropdown" aria-label="Menú principal">
-      <a href="index.html">Inicio</a>
-      <a href="noticias/">Noticias</a>
-      <a href="guia.html">Guía para Filtrar</a>
-      <a href="mirrors.html">Mirrors/Backup</a>
-    </nav>
-  </div>
+  <!-- Navigation -->
+  <nav class="topbar">
+    <div class="topbar-container">
+      <a href="index.html" class="topbar-brand">
+        <span class="brand-icon">󰈸</span>
+        <span class="brand-text">Corvus MexiLeaks</span>
+      </a>
+      
+      <div class="nav-desktop">
+        <a href="noticias/" class="nav-link">
+          <span>󰎕</span>
+          Investigaciones
+        </a>
+        <a href="guia.html" class="nav-link">
+          <span>󰒃</span>
+          Guía Segura
+        </a>
+        <a href="contacto.html" class="nav-link">
+          <span>󰍡</span>
+          Contacto
+        </a>
+        <a href="mirrors.html" class="nav-link">
+          <span>󰐃</span>
+          Mirrors
+        </a>
+        <a href="contacto.html" class="nav-cta">
+          <span>󰒃</span>
+          Filtrar Ahora
+        </a>
+      </div>
+      
+      <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+        <span id="menu-icon">󰍉</span>
+      </button>
+    </div>
+    
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="noticias/" class="nav-link">
+        <span>󰎕</span>
+        Investigaciones
+      </a>
+      <a href="guia.html" class="nav-link">
+        <span>󰒃</span>
+        Guía Segura
+      </a>
+      <a href="contacto.html" class="nav-link">
+        <span>󰍡</span>
+        Contacto
+      </a>
+      <a href="mirrors.html" class="nav-link">
+        <span>󰐃</span>
+        Mirrors
+      </a>
+      <a href="contacto.html" class="nav-cta">
+        <span>󰒃</span>
+        Filtrar Ahora
+      </a>
+    </div>
+  </nav>
+
   <main>
-    <section class="hero">
-      <div class="hero-title">Contacto Seguro</div>
-      <div class="hero-desc">
-        Haznos llegar tu filtración o consulta de forma anónima y cifrada.
-      </div>
-      <div style="max-width:600px;margin:auto;text-align:left;color:var(--accent);font-size:1.1rem;">
-        <ul>
-          <li><b>Signal:</b> <span style="color:var(--silver);">+52 55 1234 5678</span> <br> <i>Recomendado para máxima privacidad</i></li>
-          <li><b>Email seguro:</b> <span style="color:var(--silver);">filtraciones@corvusmexileaks.org</span></li>
-        </ul>
-        <p>¿Tienes dudas sobre cómo enviar tu información?<br>
-        <a href="guia.html" style="color:var(--silver);">Consulta la guía de protección</a> o envía tu pregunta por Signal.</p>
-        <p><span style="color:var(--fg);font-weight:600;">Nunca compartas datos personales en el mensaje.</span></p>
-      </div>
-    </section>
+    <div class="contact-container">
+      <!-- Hero Section -->
+      <section class="contact-hero">
+        <h1 class="contact-title">Contacto Seguro</h1>
+        <p class="contact-subtitle">
+          Múltiples canales de comunicación cifrada para proteger tu anonimato
+        </p>
+      </section>
+
+      <!-- Contact Methods -->
+      <section class="contact-methods">
+        <!-- Signal Method -->
+        <div class="contact-method primary">
+          <span class="method-icon">󰍁</span>
+          <h2 class="method-title">Signal Messenger</h2>
+          <p class="method-description">
+            Nuestra opción recomendada para contacto seguro. Signal utiliza cifrado de extremo a extremo 
+            y no almacena metadatos. Perfecto para enviar documentos, audios y mensajes de forma instantánea.
+          </p>
+          
+          <div class="method-details">
+            <div class="method-contact">+52 55 1234 5678</div>
+            <div class="method-note">Disponible 24/7 para filtraciones urgentes</div>
+          </div>
+          
+          <a href="https://signal.me/#p/+525512345678" class="method-action" target="_blank">
+            <span>󰍁</span>
+            Abrir Signal
+          </a>
+        </div>
+
+        <!-- Email Method -->
+        <div class="contact-method">
+          <span class="method-icon">󰇮</span>
+          <h2 class="method-title">Email Cifrado</h2>
+          <p class="method-description">
+            Para filtraciones complejas que requieren documentación extensa. Soporta cifrado PGP 
+            para máxima seguridad. Ideal para casos que necesitan explicación detallada.
+          </p>
+          
+          <div class="method-details">
+            <div class="method-contact">filtraciones@corvusmexileaks.org</div>
+            <div class="method-note">Respuesta en 24-48 horas</div>
+          </div>
+          
+          <a href="mailto:filtraciones@corvusmexileaks.org" class="method-action">
+            <span>󰇮</span>
+            Enviar Email
+          </a>
+        </div>
+
+        <!-- Tor Method -->
+        <div class="contact-method">
+          <span class="method-icon">󰖂</span>
+          <h2 class="method-title">Red Tor</h2>
+          <p class="method-description">
+            Para máximo anonimato, accede a nuestros mirrors a través de la red Tor. 
+            Oculta completamente tu ubicación e identidad. Recomendado para casos extremadamente sensibles.
+          </p>
+          
+          <div class="method-details">
+            <div class="method-contact">corvus3x7k2m9n8p.onion</div>
+            <div class="method-note">Requiere Tor Browser</div>
+          </div>
+          
+          <a href="mirrors.html" class="method-action">
+            <span>󰖂</span>
+            Ver Mirrors Tor
+          </a>
+        </div>
+
+        <!-- ProtonMail Method -->
+        <div class="contact-method">
+          <span class="method-icon">󰒃</span>
+          <h2 class="method-title">ProtonMail Seguro</h2>
+          <p class="method-description">
+            Email alternativo con cifrado automático. No requiere configuración técnica adicional. 
+            Perfecto si prefieres email pero quieres más seguridad que el correo tradicional.
+          </p>
+          
+          <div class="method-details">
+            <div class="method-contact">corvusleaks@protonmail.com</div>
+            <div class="method-note">Cifrado automático entre cuentas ProtonMail</div>
+          </div>
+          
+          <a href="mailto:corvusleaks@protonmail.com" class="method-action">
+            <span>󰒃</span>
+            Enviar ProtonMail
+          </a>
+        </div>
+      </section>
+
+      <!-- Security Notice -->
+      <section class="security-notice">
+        <div class="security-content">
+          <span class="security-icon">󰒃</span>
+          <h2 class="security-title">Garantía de Anonimato Absoluto</h2>
+          <p class="security-description">
+            En Corvus MexiLeaks <strong>nunca</strong> almacenamos datos personales, direcciones IP, 
+            o cualquier información que pueda identificarte. Utilizamos protocolos de seguridad de grado militar 
+            y nuestros servidores están distribuidos globalmente para máxima protección.
+          </p>
+          
+          <div class="security-features">
+            <div class="security-feature">
+              <span class="security-feature-icon">󰒃</span>
+              <span class="security-feature-text">Cifrado Extremo a Extremo</span>
+            </div>
+            <div class="security-feature">
+              <span class="security-feature-icon">󰍁</span>
+              <span class="security-feature-text">Sin Logs de Actividad</span>
+            </div>
+            <div class="security-feature">
+              <span class="security-feature-icon">󰖂</span>
+              <span class="security-feature-text">Servidores Distribuidos</span>
+            </div>
+            <div class="security-feature">
+              <span class="security-feature-icon">󰐃</span>
+              <span class="security-feature-text">Backups Seguros</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-title">
+          <span>󰋗</span>
+          Preguntas Frecuentes
+        </h2>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <span>󰋗</span>
+            ¿Qué información necesito proporcionar?
+          </h3>
+          <p class="faq-answer">
+            <strong>Nunca</strong> proporciones tu nombre real, dirección, o cualquier dato personal. 
+            Solo necesitamos la información relevante sobre los hechos que quieres denunciar y la evidencia que los respalde.
+          </p>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <span>󰋗</span>
+            ¿Cuánto tiempo tardan en responder?
+          </h3>
+          <p class="faq-answer">
+            Por Signal respondemos en pocas horas. Por email, entre 24-48 horas. 
+            Para casos complejos que requieren verificación extensa, puede tomar varios días o semanas.
+          </p>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <span>󰋗</span>
+            ¿Qué tipo de evidencia aceptan?
+          </h3>
+          <p class="faq-answer">
+            Documentos, fotografías, audios, videos, capturas de pantalla, testimonios, 
+            y cualquier evidencia digital que respalde denuncias de corrupción, fraude, o abuso de poder.
+          </p>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <span>󰋗</span>
+            ¿Cómo verifican la información?
+          </h3>
+          <p class="faq-answer">
+            Nuestro equipo de periodistas e investigadores verifica cada filtración a través de múltiples fuentes, 
+            análisis forense de documentos, y consulta con expertos antes de publicar cualquier información.
+          </p>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <span>󰋗</span>
+            ¿Puedo enviar información de forma anónima?
+          </h3>
+          <p class="faq-answer">
+            Sí, es nuestra especialidad. Todos nuestros canales de comunicación están diseñados para proteger 
+            tu anonimato. Nunca pediremos ni almacenaremos información personal.
+          </p>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section style="text-align: center; margin: 4rem 0;">
+        <h2 style="font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; color: var(--text-primary);">
+          ¿Tienes información importante?
+        </h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          No esperes más. Tu filtración puede exponer la corrupción y generar cambios reales en la sociedad. 
+          Estamos aquí para protegerte y amplificar tu voz.
+        </p>
+        
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://signal.me/#p/+525512345678" class="btn btn-primary" target="_blank">
+            <span>󰍁</span>
+            Contactar por Signal
+          </a>
+          <a href="guia.html" class="btn btn-secondary">
+            <span>󰒃</span>
+            Ver Guía de Seguridad
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Corvus MexiLeaks · Seguridad y periodismo responsable.
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>
+          <span>󰈸</span>
+          Corvus MexiLeaks
+        </h3>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+          Contacto seguro y anónimo. Tu protección es nuestra prioridad absoluta.
+        </p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>
+          <span>󰍡</span>
+          Contacto Directo
+        </h3>
+        <ul>
+          <li><a href="https://signal.me/#p/+525512345678">󰁔 Signal: +52 55 1234 5678</a></li>
+          <li><a href="mailto:filtraciones@corvusmexileaks.org">󰁔 Email Principal</a></li>
+          <li><a href="mailto:corvusleaks@protonmail.com">󰁔 ProtonMail</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>
+          <span>󰒃</span>
+          Recursos de Seguridad
+        </h3>
+        <ul>
+          <li><a href="guia.html">󰁔 Guía de Seguridad</a></li>
+          <li><a href="assets/pgp-key.asc">󰁔 Clave PGP Pública</a></li>
+          <li><a href="mirrors.html">󰁔 Mirrors Tor</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>
+          <span>󰎕</span>
+          Investigaciones
+        </h3>
+        <ul>
+          <li><a href="noticias/">󰁔 Todas las Investigaciones</a></li>
+          <li><a href="index.html">󰁔 Inicio</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Corvus MexiLeaks. Comunicación segura y periodismo independiente.</p>
+      <p>Tu anonimato está garantizado. Tu voz será escuchada.</p>
+    </div>
   </footer>
+
   <script>
-    function toggleMenu() {
-      var menu = document.getElementById('dropdownMenu');
-      menu.classList.toggle('show');
-      if (menu.classList.contains('show')) {
-        document.addEventListener('click', closeMenuOnOutside, {capture:true});
-      }
+    // Mobile menu functionality
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('nav-mobile');
+      const menuIcon = document.getElementById('menu-icon');
+      
+      mobileNav.classList.toggle('show');
+      menuIcon.textContent = mobileNav.classList.contains('show') ? '󰅖' : '󰍉';
     }
-    function closeMenuOnOutside(e) {
-      var menu = document.getElementById('dropdownMenu');
-      var toggle = document.querySelector('.menu-toggle');
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.classList.remove('show');
-        document.removeEventListener('click', closeMenuOnOutside, {capture:true});
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const mobileNav = document.getElementById('nav-mobile');
+      const menuToggle = document.querySelector('.menu-toggle');
+      
+      if (!mobileNav.contains(event.target) && !menuToggle.contains(event.target)) {
+        mobileNav.classList.remove('show');
+        document.getElementById('menu-icon').textContent = '󰍉';
       }
-    }
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const topbar = document.querySelector('.topbar');
+      if (window.scrollY > 100) {
+        topbar.style.background = 'rgba(17, 19, 24, 0.98)';
+        topbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+      } else {
+        topbar.style.background = 'rgba(17, 19, 24, 0.95)';
+        topbar.style.boxShadow = 'none';
+      }
+    });
+
+    // Add click tracking for contact methods
+    document.querySelectorAll('.method-action').forEach(button => {
+      button.addEventListener('click', function() {
+        // Add visual feedback
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 150);
+      });
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
   </script>
 </body>
 </html>
