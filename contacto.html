@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" class="bg-black text-gray-100">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto Seguro — CORVUS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: { mono: ['Fira Code', 'monospace'] },
+        extend: {
+          colors: { accent: '#0ff', link: '#0f0' },
+          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } },
+          animation: { fadeIn: 'fadeIn 1.2s ease-out forwards' },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body class="font-mono max-w-3xl mx-auto px-4 py-8 leading-relaxed animate-fadeIn">
+  <h1 class="text-accent text-2xl font-bold mb-4"> Contacto Seguro</h1>
+  <p> <strong>ProtonMail:</strong> corvusleaks@protonmail.com</p>
+  <p> <a href="./assets/pgp-key.asc" download class="text-link underline hover:text-accent transition duration-300">Descargar clave pública PGP</a></p>
+  <p><strong>Fingerprint:</strong> <code class="bg-gray-800 p-1 rounded">ABCD 1234 EFGH 5678 IJKL 9012 MNOP 3456</code></p>
+  <p class="mt-4"> Usa Tor o Tails. Nunca envíes filtraciones sin cifrar.</p>
+</body>
+</html>
