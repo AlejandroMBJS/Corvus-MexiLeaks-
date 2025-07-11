@@ -1,88 +1,50 @@
 🦉 CORVUS — MexiLeaks
 
-CORVUS — MexiLeaks es un medio de periodismo de investigación independiente, anónimo y distribuido.
-Su objetivo es recibir, verificar y publicar filtraciones sobre corrupción, desapariciones, ciberseguridad, fraudes y delitos de alto impacto, de forma imposible de silenciar.
+CORVUS — MexiLeaks es un medio de periodismo de investigación independiente y distribuido, inspirado en la resiliencia de Wikileaks, adaptado a México y América Latina.
+Su objetivo es exponer redes de corrupción, fraudes, desapariciones, cibercrimen y filtraciones de interés público, protegiendo siempre la identidad de sus fuentes.
 
 ⸻
 
-✊ Objetivo
-	•	Exponer hechos de interés público con evidencias verificables.
-	•	Garantizar la protección y el anonimato de las fuentes.
-	•	Mantener una red replicable y resiliente: sin bases de datos, sin backend, 100% estática.
+✊ ¿Qué hacemos?
+	•	Verificamos filtraciones y documentos de alto impacto.
+	•	Publicamos reportajes periodísticos con evidencias forenses.
+	•	Replicamos cada historia para que nunca pueda ser silenciada.
+	•	Mantenemos toda nuestra red imposible de hackear: sin bases de datos ni formularios vulnerables.
 
 ⸻
 
-🗂️ Estructura del proyecto
+🔐 ¿Cómo puedes filtrar de forma segura?
 
-/index.html               --> Portada: muestra la última noticia de forma automática.
-/guia.html                --> Guía OPSEC: pasos para filtrar información de forma segura.
-/contacto.html            --> Contacto: ProtonMail, clave pública PGP y Signal.
-/mirrors.html             --> Lista de mirrors y hidden services.
-/noticias/                --> Contiene todos los casos y reportajes.
-/noticias/noticias.json   --> Lista de noticias (usada para mostrar la más reciente).
-/assets/pgp-key.asc       --> Clave pública PGP.
+CORVUS — MexiLeaks nunca pide datos personales.
+Tu seguridad es nuestra prioridad:
+	•	Usa Tor Browser o Tails OS para conectarte.
+	•	Envía información cifrada con nuestra clave pública PGP.
+	•	Usa un ProtonMail anónimo para proteger tu IP.
+	•	También puedes contactarnos vía Signal como canal alternativo.
 
-
-⸻
-
-📣 Cómo recibir y subir filtraciones
-
-1️⃣ Recibir la filtración
-	•	Usar Tor Browser o Tails OS.
-	•	Crear ProtonMail anónimo.
-	•	Cifrar todo con la clave pública PGP.
-	•	Alternativamente, enviar vía Signal (opcional).
-
-Consulta guia.html para pasos detallados.
-
-2️⃣ Verificar y organizar
-	•	Verificar la autenticidad de los documentos.
-	•	Limpiar todos los metadatos.
-	•	Generar hash.txt con SHA-256 para cada evidencia.
-
-3️⃣ Publicar
-	•	Crear una nueva carpeta /noticias/{año}/caso-XXX/ con:
-	•	index.html del caso/reportaje.
-	•	Carpeta evidencias/ con documentos.
-	•	Carpeta torrents/ (opcional).
-	•	Archivo hash.txt con verificación.
-	•	Agregar la nueva entrada en /noticias/noticias.json:
-
-{
-  "id": 2,
-  "titulo": "Caso 002 — Título del reportaje",
-  "ruta": "./noticias/2025/caso-002/index.html",
-  "fecha": "YYYY-MM-DD"
-}
-
-	•	Subir los cambios a la rama main.
-
-El archivo index.html detecta automáticamente la última noticia publicada a partir de noticias.json.
+Consulta la Guía OPSEC para aprender cómo enviar tu noticia de forma anónima y segura.
 
 ⸻
 
-🔐 Guía OPSEC
+🗞️ ¿Dónde se publican las filtraciones?
 
-Consulta guia.html para enviar información de forma segura.
-
-Incluye:
-	•	Recomendaciones de Tor/Tails.
-	•	Uso de ProtonMail cifrado con PGP.
-	•	Limpieza de metadatos.
-	•	Contacto por Signal como opción adicional (botón flotante visible en la guía).
+Cada filtración verificada se convierte en una noticia o reportaje dentro de la sección de Noticias.
+Cada nota incluye:
+	•	Contexto periodístico.
+	•	Evidencias originales.
+	•	Descargas vía Torrent o IPFS si aplica.
+	•	Hashes SHA-256 para validar integridad.
 
 ⸻
 
-🗝️ Clave pública
-
-La clave PGP se encuentra en assets/pgp-key.asc.
-Siempre cifra todo antes de enviar.
+🗝️ Contacto seguro
+	•	📧 ProtonMail: corvusleaks@protonmail.com
+	•	🔑 Descargar clave pública PGP
+	•	📲 Signal: enlace disponible en la Guía OPSEC
 
 ⸻
 
 🦉 CORVUS — MexiLeaks
 
-Filtración anónima. Evidencia verificada. Periodismo imposible de silenciar.
-
-⸻
-
+Periodismo de investigación. Filtración anónima. Evidencia verificada.
+Imposible de silenciar.
