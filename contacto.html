@@ -1,28 +1,59 @@
 <!DOCTYPE html>
-<html lang="es" class="bg-black text-gray-100">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Contacto Seguro — CORVUS</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        fontFamily: { mono: ['Fira Code', 'monospace'] },
-        extend: {
-          colors: { accent: '#0ff', link: '#0f0' },
-          keyframes: { fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } } },
-          animation: { fadeIn: 'fadeIn 1.2s ease-out forwards' },
-        },
-      },
-    };
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto Seguro · Corvus MexiLeaks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="font-mono max-w-3xl mx-auto px-4 py-8 leading-relaxed animate-fadeIn">
-  <h1 class="text-accent text-2xl font-bold mb-4"> Contacto Seguro</h1>
-  <p> <strong>ProtonMail:</strong> corvusleaks@protonmail.com</p>
-  <p> <a href="./assets/pgp-key.asc" download class="text-link underline hover:text-accent transition duration-300">Descargar clave pública PGP</a></p>
-  <p><strong>Fingerprint:</strong> <code class="bg-gray-800 p-1 rounded">ABCD 1234 EFGH 5678 IJKL 9012 MNOP 3456</code></p>
-  <p class="mt-4"> Usa Tor o Tails. Nunca envíes filtraciones sin cifrar.</p>
+<body>
+  <div class="topbar">
+    <div class="topbar-title">Corvus MexiLeaks</div>
+    <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">&#9776;</button>
+    <nav id="dropdownMenu" class="dropdown" aria-label="Menú principal">
+      <a href="index.html">Inicio</a>
+      <a href="noticias/">Noticias</a>
+      <a href="guia.html">Guía para Filtrar</a>
+      <a href="mirrors.html">Mirrors/Backup</a>
+    </nav>
+  </div>
+  <main>
+    <section class="hero">
+      <div class="hero-title">Contacto Seguro</div>
+      <div class="hero-desc">
+        Haznos llegar tu filtración o consulta de forma anónima y cifrada.
+      </div>
+      <div style="max-width:600px;margin:auto;text-align:left;color:var(--accent);font-size:1.1rem;">
+        <ul>
+          <li><b>Signal:</b> <span style="color:var(--silver);">+52 55 1234 5678</span> <br> <i>Recomendado para máxima privacidad</i></li>
+          <li><b>Email seguro:</b> <span style="color:var(--silver);">filtraciones@corvusmexileaks.org</span></li>
+        </ul>
+        <p>¿Tienes dudas sobre cómo enviar tu información?<br>
+        <a href="guia.html" style="color:var(--silver);">Consulta la guía de protección</a> o envía tu pregunta por Signal.</p>
+        <p><span style="color:var(--fg);font-weight:600;">Nunca compartas datos personales en el mensaje.</span></p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Corvus MexiLeaks · Seguridad y periodismo responsable.
+  </footer>
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('dropdownMenu');
+      menu.classList.toggle('show');
+      if (menu.classList.contains('show')) {
+        document.addEventListener('click', closeMenuOnOutside, {capture:true});
+      }
+    }
+    function closeMenuOnOutside(e) {
+      var menu = document.getElementById('dropdownMenu');
+      var toggle = document.querySelector('.menu-toggle');
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('show');
+        document.removeEventListener('click', closeMenuOnOutside, {capture:true});
+      }
+    }
+  </script>
 </body>
 </html>
