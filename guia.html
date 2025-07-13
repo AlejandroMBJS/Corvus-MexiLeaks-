@@ -552,6 +552,32 @@
         </p>
         
         <div class="pgp-section">
+          <div class="pgp-section">
+  <h3 class="pgp-title">Ejemplo de cómo usar PGP</h3>
+  <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+    Así es como puedes cifrar tu mensaje o archivo con nuestra clave pública:
+  </p>
+
+  <div class="code-block">
+    <pre>
+# 1) Guarda nuestra clave pública y añádela a tu llavero:
+gpg --import clave-publica.asc
+
+# 2) Escribe tu mensaje en un archivo de texto:
+nano mensaje.txt
+
+# 3) Cifra el archivo para Corvus MexiLeaks:
+gpg --encrypt --armor --recipient corvusleaks@protonmail.com mensaje.txt
+
+# Esto generará mensaje.txt.asc que puedes adjuntar en tu correo ProtonMail.
+    </pre>
+  </div>
+
+  <p style="color: var(--text-secondary); margin-top: 1rem;">
+    Si usas ProtonMail, también puedes activar PGP integrado directamente al redactar el correo: 
+    adjunta el archivo cifrado o usa la opción de cifrado avanzado desde la configuración de seguridad.
+  </p>
+</div>
           <h3 class="pgp-title">
             Nuestra Clave Pública PGP
           </h3>
