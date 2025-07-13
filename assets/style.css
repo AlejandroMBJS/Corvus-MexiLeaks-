@@ -1,10 +1,10 @@
-/* Corvus MexiLeaks - Modern Minimalist Design */
+/* Corvus MexiLeaks - Minimalist Black, White, Silver Design */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 :root {
   --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #f1f3f4;
+  --bg-secondary: #f8f8f8;
+  --bg-tertiary: #f0f0f0;
   --bg-card: #ffffff;
   --bg-elevated: #ffffff;
   --text-primary: #000000;
@@ -13,8 +13,9 @@
   --text-light: #999999;
   --accent-primary: #000000;
   --accent-secondary: #333333;
-  --border-primary: #e5e7eb;
-  --border-secondary: #d1d5db;
+  --accent-tertiary: #c0c0c0;
+  --border-primary: #e0e0e0;
+  --border-secondary: #d0d0d0;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -635,6 +636,35 @@ footer {
   font-size: 0.875rem;
 }
 
+/* Category Filters */
+.category-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .nav-desktop {
@@ -696,6 +726,16 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+  
+  .category-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .category-btn {
+    white-space: nowrap;
   }
 }
 
