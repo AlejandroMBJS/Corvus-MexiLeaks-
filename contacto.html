@@ -593,10 +593,14 @@
     window.addEventListener('scroll', function() {
       const topbar = document.querySelector('.topbar');
       if (window.scrollY > 100) {
-        topbar.style.background = 'rgba(17, 19, 24, 0.98)';
-        topbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
+                      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        topbar.style.background = isDark ? 'rgba(0, 0, 0, 0.98)' : 'rgba(255, 255, 255, 0.98)';
+        topbar.style.boxShadow = isDark ? '0 4px 20px rgba(255, 255, 255, 0.1)' : '0 4px 20px rgba(0, 0, 0, 0.1)';
       } else {
-        topbar.style.background = 'rgba(17, 19, 24, 0.95)';
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
+                      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        topbar.style.background = isDark ? 'rgba(0, 0, 0, 0.95)' : 'rgba(255, 255, 255, 0.95)';
         topbar.style.boxShadow = 'none';
       }
     });
