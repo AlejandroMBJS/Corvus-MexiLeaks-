@@ -196,7 +196,7 @@ p {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   transition: var(--transition);
 }
 
@@ -209,6 +209,7 @@ p {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  color: var(--text-primary) !important;
 }
 
 .nav-desktop {
@@ -218,7 +219,7 @@ p {
 }
 
 .nav-link {
-  color: var(--text-secondary);
+  color: var(--text-secondary) !important;
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 0;
@@ -234,12 +235,12 @@ p {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--text-primary);
+  background: var(--text-primary) !important;
   transition: var(--transition);
 }
 
 .nav-link:hover {
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
 }
 
 .nav-link:hover::after {
@@ -247,8 +248,8 @@ p {
 }
 
 .nav-cta {
-  background: var(--text-primary);
-  color: var(--bg-primary);
+  background: var(--text-primary) !important;
+  color: var(--bg-primary) !important;
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-sm);
   font-weight: 600;
@@ -258,14 +259,15 @@ p {
 }
 
 .nav-cta:hover {
-  background: var(--text-secondary);
+  background: var(--text-secondary) !important;
+  color: var(--bg-primary) !important;
 }
 
 .menu-toggle {
   display: none;
   background: none;
   border: none;
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
@@ -305,12 +307,14 @@ p {
   padding: 1rem 0;
   border-bottom: 1px solid var(--border-primary);
   font-size: 1rem;
+  color: var(--text-secondary) !important;
 }
 
 .nav-mobile .nav-link:last-child {
   border-bottom: none;
 }
 
+  color: var(--text-primary) !important;
 /* Main Content */
 main {
   flex: 1;
