@@ -14,7 +14,7 @@ const newsDatabase = [
     author: 'Equipo de Investigación Corvus',
     featured: true,
     tags: ['corrupción', 'contratos públicos', 'sobornos', 'municipios'],
-    link: 'noticias/2025/caso-001/index.html',
+    link: '2025/caso-001/index.html',
     image: '🏛️'
   },
   {
