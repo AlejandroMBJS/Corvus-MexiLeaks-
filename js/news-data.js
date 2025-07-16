@@ -23,7 +23,7 @@ const newsDatabase = [
     author: 'Corvus',
     featured: true,
     tags: ['impunidad', 'iglesia', 'justicia'],
-    link: '../feeds/corrupcion-justicia/2025-001/index.html',
+    link: '2025-001/index.html',
     image: '⚖️'
   },
   {
@@ -73,7 +73,7 @@ const newsDatabase = [
     author: 'Corvus',
     featured: true,
     tags: ['geopolítica', 'América Latina', 'comercio'],
-    link: '../feeds/internacional-geopolitica/2025-001/index.html',
+    link: '2025-001/index.html',
     image: '🌎'
   },
   {
@@ -105,7 +105,7 @@ const newsDatabase = [
     author: 'Corvus',
     featured: true,
     tags: ['soberanía', 'fideicomisos', 'finanzas'],
-    link: '../feeds/soberania/2025-001/index.html',
+    link: '2025-001/index.html',
     image: '🛡️'
   }
 ];
