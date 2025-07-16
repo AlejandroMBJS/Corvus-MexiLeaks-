@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soberanía · Corvus MexiLeaks</title>
+  <meta name="description" content="Noticias sobre defensa de la soberanía nacional, independencia energética y decisiones estratégicas de México.">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="topbar">
+    <div class="topbar-container">
+      <a href="../../index.html" class="topbar-brand">
+        <span class="brand-text">Corvus MexiLeaks</span>
+      </a>
+      
+      <div class="nav-desktop">
+        <a href="../../noticias/" class="nav-link">Noticias</a>
+        <a href="../" class="nav-link">Feeds</a>
+        <a href="../../guia.html" class="nav-link">Guía Segura</a>
+        <a href="../../contacto.html" class="nav-cta">Contacto</a>
+      </div>
+      
+      <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+        <span id="menu-icon">☰</span>
+      </button>
+    </div>
+    
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="../../noticias/" class="nav-link">Noticias</a>
+      <a href="../" class="nav-link">Feeds</a>
+      <a href="../../guia.html" class="nav-link">Guía Segura</a>
+      <a href="../../contacto.html" class="nav-cta">Contacto</a>
+    </div>
+  </nav>
+
+  <main style="padding-top: 80px;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+      <!-- Header -->
+      <div style="text-align: center; margin-bottom: 3rem; padding: 2rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">🇲🇽</span>
+        <h1 style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+          Soberanía Nacional
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 1.125rem;">
+          Noticias sobre defensa de la soberanía, independencia energética y decisiones estratégicas
+        </p>
+        <a href="feed.xml" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; padding: 0.75rem 1.5rem; background: #00cc66; color: white; text-decoration: none; border-radius: var(--radius-md); font-weight: 600;">
+          📡 Suscribirse al Feed RSS
+        </a>
+      </div>
+
+      <!-- News Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+        <article style="background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);">
+          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #00cc66, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem; color: white; opacity: 0.8;">🇲🇽</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
+              <span style="background: #00cc66; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">SOBERANÍA</span>
+              <span>15 de Enero, 2025</span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+              Decisiones Energéticas que Fortalecen la Independencia Nacional
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+              Análisis de las políticas energéticas recientes y su impacto en la soberanía nacional. 
+              Cómo las decisiones estratégicas protegen los recursos naturales de México.
+            </p>
+            <a href="#" style="color: #00cc66; text-decoration: none; font-weight: 600;">
+              Leer noticia completa →
+            </a>
+          </div>
+        </article>
+
+        <article style="background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);">
+          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #00cc66, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem; color: white; opacity: 0.8;">⚡</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
+              <span style="background: #00cc66; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">SOBERANÍA</span>
+              <span>12 de Enero, 2025</span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+              Protección de Recursos Estratégicos Nacionales
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+              Investigación sobre medidas para proteger recursos estratégicos de intereses extranjeros 
+              y garantizar su aprovechamiento en beneficio del pueblo mexicano.
+            </p>
+            <a href="#" style="color: #00cc66; text-decoration: none; font-weight: 600;">
+              Leer noticia completa →
+            </a>
+          </div>
+        </article>
+
+        <article style="background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);">
+          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #00cc66, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem; color: white; opacity: 0.8;">🛡️</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
+              <span style="background: #00cc66; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">SOBERANÍA</span>
+              <span>10 de Enero, 2025</span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+              Defensa de la Autodeterminación en Decisiones Comerciales
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+              Análisis de cómo México mantiene su capacidad de decisión en acuerdos comerciales 
+              internacionales sin comprometer su soberanía económica.
+            </p>
+            <a href="#" style="color: #00cc66; text-decoration: none; font-weight: 600;">
+              Leer noticia completa →
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Soberanía Nacional</h3>
+        <p style="color: var(--text-secondary);">
+          Seguimiento especializado de temas relacionados con la defensa de la soberanía mexicana.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Otras Categorías</h3>
+        <ul>
+          <li><a href="../corrupcion-justicia/">Corrupción y Justicia</a></li>
+          <li><a href="../internacional-geopolitica/">Internacional</a></li>
+          <li><a href="../crimen-organizado/">Crimen Organizado</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Corvus MexiLeaks. Defendiendo la soberanía a través del periodismo.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('nav-mobile');
+      const menuIcon = document.getElementById('menu-icon');
+      mobileNav.classList.toggle('show');
+      menuIcon.textContent = mobileNav.classList.contains('show') ? '✕' : '☰';
+    }
+
+    document.addEventListener('click', function(event) {
+      const mobileNav = document.getElementById('nav-mobile');
+      const menuToggle = document.querySelector('.menu-toggle');
+      if (!mobileNav.contains(event.target) && !menuToggle.contains(event.target)) {
+        mobileNav.classList.remove('show');
+        document.getElementById('menu-icon').textContent = '☰';
+      }
+    });
+  </script>
+</body>
+</html>

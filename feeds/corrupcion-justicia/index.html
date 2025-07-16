@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corrupción y Justicia · Corvus MexiLeaks</title>
+  <meta name="description" content="Noticias sobre corrupción, abuso de poder, impunidad y funcionamiento del sistema de justicia mexicano.">
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="topbar">
+    <div class="topbar-container">
+      <a href="../../index.html" class="topbar-brand">
+        <span class="brand-text">Corvus MexiLeaks</span>
+      </a>
+      
+      <div class="nav-desktop">
+        <a href="../../noticias/" class="nav-link">Noticias</a>
+        <a href="../" class="nav-link">Feeds</a>
+        <a href="../../guia.html" class="nav-link">Guía Segura</a>
+        <a href="../../contacto.html" class="nav-cta">Contacto</a>
+      </div>
+      
+      <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+        <span id="menu-icon">☰</span>
+      </button>
+    </div>
+    
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="../../noticias/" class="nav-link">Noticias</a>
+      <a href="../" class="nav-link">Feeds</a>
+      <a href="../../guia.html" class="nav-link">Guía Segura</a>
+      <a href="../../contacto.html" class="nav-cta">Contacto</a>
+    </div>
+  </nav>
+
+  <main style="padding-top: 80px;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+      <!-- Header -->
+      <div style="text-align: center; margin-bottom: 3rem; padding: 2rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-primary);">
+        <span style="font-size: 3rem; display: block; margin-bottom: 1rem;">⚖️</span>
+        <h1 style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+          Corrupción y Justicia
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 1.125rem;">
+          Investigaciones sobre corrupción, abuso de poder y funcionamiento del sistema de justicia
+        </p>
+        <a href="feed.xml" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; padding: 0.75rem 1.5rem; background: #ff9500; color: white; text-decoration: none; border-radius: var(--radius-md); font-weight: 600;">
+          📡 Suscribirse al Feed RSS
+        </a>
+      </div>
+
+      <!-- News Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+        <article style="background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);">
+          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #ff9500, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem; color: white; opacity: 0.8;">⚖️</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
+              <span style="background: #ff9500; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">CORRUPCIÓN</span>
+              <span>14 de Enero, 2025</span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+              Red de Sobornos en Contratos Públicos Expuesta
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+              Investigación revela cómo funcionarios públicos recibían sobornos a cambio de 
+              adjudicar contratos millonarios a empresas específicas, afectando la transparencia.
+            </p>
+            <a href="../../noticias/2025/caso-001/index.html" style="color: #ff9500; text-decoration: none; font-weight: 600;">
+              Leer noticia completa →
+            </a>
+          </div>
+        </article>
+
+        <article style="background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);">
+          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #ff9500, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem; color: white; opacity: 0.8;">🏛️</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
+              <span style="background: #ff9500; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">JUSTICIA</span>
+              <span>11 de Enero, 2025</span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+              Impunidad en Casos de Alto Perfil: Análisis del Sistema
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+              Análisis profundo sobre cómo la impunidad afecta casos de corrupción de alto perfil 
+              y las reformas necesarias para fortalecer el sistema de justicia.
+            </p>
+            <a href="#" style="color: #ff9500; text-decoration: none; font-weight: 600;">
+              Leer noticia completa →
+            </a>
+          </div>
+        </article>
+
+        <article style="background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);">
+          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #ff9500, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem; color: white; opacity: 0.8;">💰</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
+              <span style="background: #ff9500; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">CORRUPCIÓN</span>
+              <span>9 de Enero, 2025</span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+              Desvío de Recursos en Programas Sociales
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+              Investigación sobre irregularidades en la administración de programas sociales 
+              y cómo recursos destinados a sectores vulnerables fueron desviados.
+            </p>
+            <a href="#" style="color: #ff9500; text-decoration: none; font-weight: 600;">
+              Leer noticia completa →
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Corrupción y Justicia</h3>
+        <p style="color: var(--text-secondary);">
+          Seguimiento especializado de casos de corrupción y funcionamiento del sistema de justicia.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3>Otras Categorías</h3>
+        <ul>
+          <li><a href="../soberania/">Soberanía</a></li>
+          <li><a href="../internacional-geopolitica/">Internacional</a></li>
+          <li><a href="../crimen-organizado/">Crimen Organizado</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Corvus MexiLeaks. Exponiendo la corrupción, fortaleciendo la justicia.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('nav-mobile');
+      const menuIcon = document.getElementById('menu-icon');
+      mobileNav.classList.toggle('show');
+      menuIcon.textContent = mobileNav.classList.contains('show') ? '✕' : '☰';
+    }
+
+    document.addEventListener('click', function(event) {
+      const mobileNav = document.getElementById('nav-mobile');
+      const menuToggle = document.querySelector('.menu-toggle');
+      if (!mobileNav.contains(event.target) && !menuToggle.contains(event.target)) {
+        mobileNav.classList.remove('show');
+        document.getElementById('menu-icon').textContent = '☰';
+      }
+    });
+  </script>
+</body>
+</html>

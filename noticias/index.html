@@ -391,16 +391,16 @@
     <div class="news-container">
       <!-- Hero Section -->
       <section class="news-hero">
-        <h1 class="news-title">Investigaciones</h1>
+        <h1 class="news-title">Noticias</h1>
         <p class="news-subtitle">
-          Todas nuestras investigaciones verificadas que exponen corrupción, fraudes y abusos de poder
+          Todas nuestras noticias verificadas que exponen corrupción, fraudes y abusos de poder
         </p>
       </section>
 
       <!-- Featured Section -->
       <section class="featured-section">
         <h2 class="featured-title">
-          Investigación Destacada
+          Noticia Destacada
         </h2>
         
         <div class="featured-grid">
@@ -416,13 +416,13 @@
               </div>
               <h3 class="article-title">Red de Sobornos Municipales: La Filtración que Cambió Todo</h3>
               <p class="article-excerpt">
-                Una investigación exhaustiva basada en documentos filtrados revela una red de corrupción 
+                Una noticia exhaustiva basada en documentos filtrados revela una red de corrupción 
                 que involucra a más de 20 funcionarios municipales en contratos millonarios. 
-                La investigación incluye audios comprometedores, transferencias bancarias sospechosas 
+                La noticia incluye audios comprometedores, transferencias bancarias sospechosas 
                 y testimonios protegidos que exponen el esquema completo de sobornos y adjudicaciones fraudulentas.
               </p>
               <a href="2025/caso-001/index.html" class="article-link">
-                Leer investigación completa
+                Leer noticia completa
               </a>
             </div>
           </article>
@@ -430,15 +430,23 @@
       </section>
 
       <!-- Filters -->
+      <section class="filters">
         <button class="filter-btn active" data-filter="all">
           Todas
-        <button class="filter-btn" data-filter="mexico">
-          Noticias México
-        <button class="filter-btn" data-filter="internacional">
-          Noticias Internacionales
-        <button class="filter-btn" data-filter="exclusivas">
-          Exclusivas
         </button>
+        <button class="filter-btn" data-filter="soberania">
+          Soberanía
+        </button>
+        <button class="filter-btn" data-filter="corrupcion">
+          Corrupción y Justicia
+        </button>
+        <button class="filter-btn" data-filter="internacional">
+          Internacional
+        </button>
+        <button class="filter-btn" data-filter="crimen">
+          Crimen Organizado
+        </button>
+        <button class="filter-btn" data-filter="recientes">
           Recientes
         </button>
       </section>
@@ -451,7 +459,7 @@
       <!-- Load More -->
       <section class="load-more">
         <button class="load-more-btn" onclick="loadMoreArticles()">
-          Cargar más investigaciones
+          Cargar más noticias
         </button>
       </section>
     </div>
@@ -471,7 +479,7 @@
       
       <div class="footer-section">
         <h3>
-          Investigaciones Destacadas
+          Noticias Destacadas
         </h3>
         <ul>
           <li><a href="2025/caso-001/index.html">Red de Sobornos Municipales</a></li>
@@ -493,18 +501,20 @@
       
       <div class="footer-section">
         <h3>
-          Acceso
+          Categorías
         </h3>
         <ul>
-          <li><a href="../mirrors.html">Mirrors y Backups</a></li>
+          <li><a href="../feeds/">Feeds por Categoría</a></li>
+          <li><a href="../feeds/soberania/">Soberanía</a></li>
+          <li><a href="../feeds/corrupcion-justicia/">Corrupción</a></li>
           <li><a href="../index.html">Inicio</a></li>
         </ul>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; 2025 Corvus MexiLeaks. Periodismo de investigación independiente.</p>
-      <p>Protegemos fuentes, exponemos la verdad, generamos cambio real.</p>
+      <p>&copy; 2025 Corvus MexiLeaks. Periodismo independiente.</p>
+      <p>Noticias verificadas, fuentes protegidas, verdad expuesta.</p>
     </div>
   </footer>
 
@@ -513,57 +523,57 @@
     const articles = [
       {
         id: 1,
-        title: "Testimonios Anónimos Revelan Corrupción Local",
-        excerpt: "Ciudadanos denuncian prácticas corruptas en gobiernos municipales a través de testimonios protegidos y evidencia documental.",
-        category: "Denuncia",
+        title: "Decisiones Energéticas Fortalecen la Soberanía Nacional",
+        excerpt: "Análisis de políticas energéticas recientes y su impacto en la independencia nacional de México.",
+        category: "Soberanía",
         date: "5 de Enero, 2025",
         link: "#",
-        type: "investigation"
+        type: "soberania"
       },
       {
         id: 2,
-        title: "Análisis Forense de Documentos Bancarios",
-        excerpt: "Datos filtrados muestran movimientos bancarios sospechosos en múltiples dependencias gubernamentales por más de 200 millones.",
-        category: "Análisis",
+        title: "Red de Sobornos en Contratos Públicos Expuesta",
+        excerpt: "Investigación revela cómo funcionarios recibían sobornos a cambio de adjudicar contratos millonarios.",
+        category: "Corrupción",
         date: "3 de Enero, 2025",
         link: "#",
-        type: "analysis"
+        type: "corrupcion"
       },
       {
         id: 3,
-        title: "Operación Encubierta en Sector Educativo",
-        excerpt: "Filtración revela irregularidades en la asignación de recursos para programas educativos en 15 estados del país.",
-        category: "Exclusiva",
+        title: "Influencia Extranjera en Decisiones Comerciales",
+        excerpt: "Análisis sobre cómo intereses foráneos buscan influir en políticas comerciales mexicanas.",
+        category: "Internacional",
         date: "1 de Enero, 2025",
         link: "#",
-        type: "exclusive"
+        type: "internacional"
       },
       {
         id: 4,
-        title: "Red de Empresas Fantasma Descubierta",
-        excerpt: "Investigación revela cómo empresas inexistentes recibieron contratos millonarios del gobierno federal.",
-        category: "Investigación",
+        title: "Vínculos entre Autoridades y Crimen Organizado",
+        excerpt: "Casos documentados de funcionarios con vínculos a organizaciones criminales.",
+        category: "Crimen Organizado",
         date: "28 de Diciembre, 2024",
         link: "#",
-        type: "investigation"
+        type: "crimen"
       },
       {
         id: 5,
-        title: "Filtración Masiva de Comunicaciones Internas",
-        excerpt: "Miles de emails internos exponen coordinación entre funcionarios y empresarios para manipular licitaciones.",
-        category: "Exclusiva",
+        title: "Impunidad en Casos de Alto Perfil",
+        excerpt: "Análisis sobre cómo la impunidad afecta casos de corrupción de alto perfil.",
+        category: "Justicia",
         date: "25 de Diciembre, 2024",
         link: "#",
-        type: "exclusive"
+        type: "corrupcion"
       },
       {
         id: 6,
-        title: "Análisis: Patrones de Corrupción Sistémica",
-        excerpt: "Estudio detallado de cómo operan las redes de corrupción en diferentes niveles de gobierno.",
-        category: "Análisis",
+        title: "Redes de Lavado de Dinero en el Sistema Financiero",
+        excerpt: "Investigación sobre cómo organizaciones criminales lavan dinero del narcotráfico.",
+        category: "Crimen Organizado",
         date: "22 de Diciembre, 2024",
         link: "#",
-        type: "analysis"
+        type: "crimen"
       }
     ];
 
@@ -607,7 +617,7 @@
       
       // Apply filter
       if (currentFilter !== 'all') {
-        if (currentFilter === 'recent') {
+        if (currentFilter === 'recientes') {
           filteredArticles = articles.slice(0, 3);
         } else {
           filteredArticles = articles.filter(article => article.type === currentFilter);
@@ -637,7 +647,7 @@
             <h3 class="article-title">${article.title}</h3>
             <p class="article-excerpt">${article.excerpt}</p>
             <a href="${article.link}" class="article-link">
-              Leer investigación
+              Leer noticia
             </a>
           </div>
         `;
