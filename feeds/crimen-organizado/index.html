@@ -6,6 +6,7 @@
   <title>Crimen Organizado · Corvus MexiLeaks</title>
   <meta name="description" content="Investigaciones sobre narcotráfico, lavado de dinero y vínculos con autoridades.">
   <link rel="stylesheet" href="../../assets/style.css">
+  <script src="../../js/news-data.js"></script>
 </head>
 <body>
   <!-- Navigation -->
@@ -52,72 +53,8 @@
       </div>
 
       <!-- News Grid -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
-        <article style="background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);">
-          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #cc0000, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 3rem; color: white; opacity: 0.8;">🚨</span>
-          </div>
-          <div style="padding: 2rem;">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
-              <span style="background: #cc0000; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">CRIMEN ORGANIZADO</span>
-              <span>16 de Enero, 2025</span>
-            </div>
-            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
-              Redes de Lavado de Dinero en el Sistema Financiero
-            </h3>
-            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
-              Investigación sobre cómo organizaciones criminales utilizan el sistema financiero 
-              para lavar dinero procedente del narcotráfico y otros delitos.
-            </p>
-            <a href="#" style="color: #cc0000; text-decoration: none; font-weight: 600;">
-              Leer noticia completa →
-            </a>
-          </div>
-        </article>
-
-        <article style="background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);">
-          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #cc0000, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 3rem; color: white; opacity: 0.8;">🔗</span>
-          </div>
-          <div style="padding: 2rem;">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
-              <span style="background: #cc0000; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">VÍNCULOS</span>
-              <span>12 de Enero, 2025</span>
-            </div>
-            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
-              Vínculos entre Autoridades y Organizaciones Criminales
-            </h3>
-            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
-              Análisis de casos documentados donde funcionarios públicos han establecido 
-              vínculos con organizaciones criminales, comprometiendo la seguridad nacional.
-            </p>
-            <a href="#" style="color: #cc0000; text-decoration: none; font-weight: 600;">
-              Leer noticia completa →
-            </a>
-          </div>
-        </article>
-
-        <article style="background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);">
-          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #cc0000, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
-            <span style="font-size: 3rem; color: white; opacity: 0.8;">🛡️</span>
-          </div>
-          <div style="padding: 2rem;">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
-              <span style="background: #cc0000; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">SEGURIDAD</span>
-              <span>7 de Enero, 2025</span>
-            </div>
-            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
-              Impacto del Crimen Organizado en la Seguridad Nacional
-            </h3>
-            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
-              Análisis sobre cómo las actividades del crimen organizado afectan la seguridad 
-              nacional y las estrategias necesarias para combatir esta amenaza.
-            </p>
-            <a href="#" style="color: #cc0000; text-decoration: none; font-weight: 600;">
-              Leer noticia completa →
-            </a>
-          </div>
-        </article>
+      <div id="crimen-news-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+        <!-- Las noticias de crimen organizado se cargarán automáticamente aquí -->
       </div>
     </div>
   </main>
@@ -160,6 +97,51 @@
         mobileNav.classList.remove('show');
         document.getElementById('menu-icon').textContent = '☰';
       }
+    });
+
+    // Cargar noticias de crimen organizado automáticamente
+    document.addEventListener('DOMContentLoaded', function() {
+      const newsGrid = document.getElementById('crimen-news-grid');
+      const crimenNews = NewsManager.getNewsByCategory('crimen-organizado');
+      
+      if (crimenNews.length === 0) {
+        newsGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--text-muted);">
+            <h3>No hay noticias disponibles en esta categoría</h3>
+            <p>Pronto publicaremos más investigaciones sobre crimen organizado.</p>
+          </div>
+        `;
+        return;
+      }
+      
+      crimenNews.forEach(news => {
+        const article = document.createElement('article');
+        article.style.cssText = 'background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);';
+        
+        article.innerHTML = `
+          <div style="width: 100%; height: 200px; background: linear-gradient(135deg, #cc0000, var(--bg-secondary)); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 3rem; color: white; opacity: 0.8;">${news.image}</span>
+          </div>
+          <div style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--text-muted);">
+              <span style="background: #cc0000; color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.75rem;">CRIMEN ORGANIZADO</span>
+              <span>${NewsManager.formatDate(news.date)}</span>
+              <span>${news.author}</span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">
+              ${news.title}
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+              ${news.excerpt}
+            </p>
+            <a href="${news.link}" style="color: #cc0000; text-decoration: none; font-weight: 600;">
+              Leer noticia completa →
+            </a>
+          </div>
+        `;
+        
+        newsGrid.appendChild(article);
+      });
     });
   </script>
 </body>

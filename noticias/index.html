@@ -6,6 +6,7 @@
   <title>Investigaciones · Corvus MexiLeaks</title>
   <meta name="description" content="Todas las investigaciones y filtraciones verificadas de Corvus MexiLeaks. Periodismo de investigación independiente.">
   <link rel="stylesheet" href="../assets/style.css">
+  <script src="../js/news-data.js"></script>
   <style>
     .news-container {
       max-width: 1200px;
@@ -400,32 +401,11 @@
       <!-- Featured Section -->
       <section class="featured-section">
         <h2 class="featured-title">
-          Noticia Destacada
+          🔥 Noticia Más Reciente
         </h2>
         
-        <div class="featured-grid">
-          <article class="featured-main">
-            <div class="article-image">
-              <span class="article-placeholder">📰</span>
-            </div>
-            <div class="article-content">
-              <div class="article-meta">
-                <span class="article-category exclusive">Exclusiva</span>
-                <span>15 de Enero, 2025</span>
-                <span>Redacción Corvus</span>
-              </div>
-              <h3 class="article-title">Red de Sobornos Municipales: La Filtración que Cambió Todo</h3>
-              <p class="article-excerpt">
-                Una noticia exhaustiva basada en documentos filtrados revela una red de corrupción 
-                que involucra a más de 20 funcionarios municipales en contratos millonarios. 
-                La noticia incluye audios comprometedores, transferencias bancarias sospechosas 
-                y testimonios protegidos que exponen el esquema completo de sobornos y adjudicaciones fraudulentas.
-              </p>
-              <a href="2025/caso-001/index.html" class="article-link">
-                Leer noticia completa
-              </a>
-            </div>
-          </article>
+        <div class="featured-grid" id="featured-news-container">
+          <!-- La noticia más reciente se cargará aquí automáticamente -->
         </div>
       </section>
 
@@ -520,63 +500,6 @@
 
   <script>
     // Sample articles data
-    const articles = [
-      {
-        id: 1,
-        title: "Decisiones Energéticas Fortalecen la Soberanía Nacional",
-        excerpt: "Análisis de políticas energéticas recientes y su impacto en la independencia nacional de México.",
-        category: "Soberanía",
-        date: "5 de Enero, 2025",
-        link: "#",
-        type: "soberania"
-      },
-      {
-        id: 2,
-        title: "Red de Sobornos en Contratos Públicos Expuesta",
-        excerpt: "Investigación revela cómo funcionarios recibían sobornos a cambio de adjudicar contratos millonarios.",
-        category: "Corrupción",
-        date: "3 de Enero, 2025",
-        link: "#",
-        type: "corrupcion"
-      },
-      {
-        id: 3,
-        title: "Influencia Extranjera en Decisiones Comerciales",
-        excerpt: "Análisis sobre cómo intereses foráneos buscan influir en políticas comerciales mexicanas.",
-        category: "Internacional",
-        date: "1 de Enero, 2025",
-        link: "#",
-        type: "internacional"
-      },
-      {
-        id: 4,
-        title: "Vínculos entre Autoridades y Crimen Organizado",
-        excerpt: "Casos documentados de funcionarios con vínculos a organizaciones criminales.",
-        category: "Crimen Organizado",
-        date: "28 de Diciembre, 2024",
-        link: "#",
-        type: "crimen"
-      },
-      {
-        id: 5,
-        title: "Impunidad en Casos de Alto Perfil",
-        excerpt: "Análisis sobre cómo la impunidad afecta casos de corrupción de alto perfil.",
-        category: "Justicia",
-        date: "25 de Diciembre, 2024",
-        link: "#",
-        type: "corrupcion"
-      },
-      {
-        id: 6,
-        title: "Redes de Lavado de Dinero en el Sistema Financiero",
-        excerpt: "Investigación sobre cómo organizaciones criminales lavan dinero del narcotráfico.",
-        category: "Crimen Organizado",
-        date: "22 de Diciembre, 2024",
-        link: "#",
-        type: "crimen"
-      }
-    ];
-
     let currentFilter = 'all';
     let displayedArticles = 6;
 
@@ -613,14 +536,14 @@
     // Render articles based on current filter
     function renderArticles() {
       const newsGrid = document.getElementById('news-grid');
-      let filteredArticles = articles;
+      let filteredArticles = NewsManager.getAllNews();
       
       // Apply filter
       if (currentFilter !== 'all') {
         if (currentFilter === 'recientes') {
-          filteredArticles = articles.slice(0, 3);
+          filteredArticles = filteredArticles.slice(0, 3);
         } else {
-          filteredArticles = articles.filter(article => article.type === currentFilter);
+          filteredArticles = NewsManager.getNewsByCategory(currentFilter);
         }
       }
       
@@ -634,15 +557,16 @@
       articlesToShow.forEach(article => {
         const articleElement = document.createElement('article');
         articleElement.className = 'news-article';
+        const categoryColor = NewsManager.getCategoryColor(article.category);
         articleElement.innerHTML = `
           <div class="article-image">
-            <span class="article-placeholder">📰</span>
+            <span class="article-placeholder">${article.image}</span>
           </div>
           <div class="article-content">
             <div class="article-meta">
-              <span class="article-category ${article.type}">${article.category}</span>
-              <span>${article.date}</span>
-              <span>Redacción Corvus</span>
+              <span class="article-category" style="background: ${categoryColor}">${article.categoryLabel}</span>
+              <span>${NewsManager.formatDate(article.date)}</span>
+              <span>${article.author}</span>
             </div>
             <h3 class="article-title">${article.title}</h3>
             <p class="article-excerpt">${article.excerpt}</p>
@@ -661,6 +585,35 @@
       } else {
         loadMoreBtn.style.display = 'block';
       }
+    }
+
+    // Render featured news (latest news)
+    function renderFeaturedNews() {
+      const container = document.getElementById('featured-news-container');
+      const latestNews = NewsManager.getLatestNews();
+      
+      if (!latestNews) return;
+      
+      const categoryColor = NewsManager.getCategoryColor(latestNews.category);
+      container.innerHTML = `
+        <article class="featured-main">
+          <div class="article-image">
+            <span class="article-placeholder">${latestNews.image}</span>
+          </div>
+          <div class="article-content">
+            <div class="article-meta">
+              <span class="article-category" style="background: ${categoryColor}">${latestNews.categoryLabel}</span>
+              <span>${NewsManager.formatDateTime(latestNews.date)}</span>
+              <span>${latestNews.author}</span>
+            </div>
+            <h3 class="article-title">${latestNews.title}</h3>
+            <p class="article-excerpt">${latestNews.excerpt}</p>
+            <a href="${latestNews.link}" class="article-link">
+              Leer noticia completa
+            </a>
+          </div>
+        </article>
+      `;
     }
 
     // Load more articles
@@ -699,6 +652,7 @@
     // Initialize page
     document.addEventListener('DOMContentLoaded', function() {
       setupFilters();
+      renderFeaturedNews();
       renderArticles();
       
       // Add loading animation to article links

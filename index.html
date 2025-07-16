@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="assets/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="js/news-data.js"></script>
 </head>
 <body>
   <!-- Navigation -->
@@ -173,70 +174,11 @@
       
       <div class="featured-news">
         <article class="main-story">
-          <div class="story-image">
-            <span class="story-placeholder">🇲🇽</span>
-          </div>
-          <div class="story-content">
-            <div class="story-meta">
-              <span class="story-category">Noticia</span>
-              <span>15 de Enero, 2025</span>
-              <span>Equipo de Redacción</span>
-            </div>
-            <h3 class="story-title">Irregularidades en Contratos Públicos: Una Investigación de Seis Meses</h3>
-            <p class="story-excerpt">
-              Nuestro equipo de redacción ha documentado durante seis meses un patrón de 
-              irregularidades en la adjudicación de contratos públicos que compromete recursos 
-              destinados al desarrollo nacional. La investigación incluye análisis forense de 
-              documentos y testimonios de funcionarios bajo protección.
-            </p>
-            <a href="#" class="story-link">
-              Leer noticia completa
-            </a>
-          </div>
+          <!-- La noticia principal se cargará automáticamente aquí -->
         </article>
         
-        <div class="secondary-stories">
-          <article class="secondary-story">
-            <div class="story-meta">
-              <span class="story-category">Análisis</span>
-              <span>12 de Enero, 2025</span>
-            </div>
-            <h3 class="story-title">Amenazas a la Soberanía Energética</h3>
-            <p class="story-excerpt">
-              Análisis sobre decisiones que comprometen la independencia energética nacional.
-            </p>
-            <a href="noticias/investigacion-contratos.html" class="story-link">
-              Leer más
-            </a>
-          </article>
-          
-          <article class="secondary-story">
-            <div class="story-meta">
-              <span class="story-category">Reportaje</span>
-              <span>10 de Enero, 2025</span>
-            </div>
-            <h3 class="story-title">Corrupción en el Sector Salud</h3>
-            <p class="story-excerpt">
-              Investigación sobre el desvío de recursos destinados a la salud pública.
-            </p>
-            <a href="#" class="story-link">
-              Leer más
-            </a>
-          </article>
-          
-          <article class="secondary-story">
-            <div class="story-meta">
-              <span class="story-category">Especial</span>
-              <span>8 de Enero, 2025</span>
-            </div>
-            <h3 class="story-title">Redes de Influencia Extranjera</h3>
-            <p class="story-excerpt">
-              Cómo intereses foráneos buscan influir en decisiones nacionales.
-            </p>
-            <a href="#" class="story-link">
-              Leer más
-            </a>
-          </article>
+        <div class="secondary-stories" id="secondary-stories">
+          <!-- Las noticias secundarias se cargarán automáticamente aquí -->
         </div>
       </div>
       
@@ -424,50 +366,80 @@
     });
 
     // Load additional news dynamically
-    const additionalNews = [
-      {
-        title: "Análisis: Patrones de Corrupción Sistémica",
-        excerpt: "Estudio profundo sobre cómo operan las redes de corrupción en diferentes niveles de gobierno mexicano.",
-        category: "Análisis",
-        date: "5 de Enero, 2025",
-        link: "#"
-      },
-      {
-        title: "Investigación: Influencia Extranjera en Decisiones Nacionales",
-        excerpt: "Cómo intereses foráneos buscan influir en políticas que afectan la soberanía mexicana.",
-        category: "Investigación",
-        date: "3 de Enero, 2025",
-        link: "#"
-      },
-      {
-        title: "Reportaje: Desvío de Recursos en Programas Sociales",
-        excerpt: "Investigación sobre irregularidades en la administración de programas destinados a sectores vulnerables.",
-        category: "Reportaje",
-        date: "1 de Enero, 2025",
-        link: "#"
-      }
-    ];
+    function renderFeaturedNews() {
+      const mainStory = document.querySelector('.main-story');
+      const latestNews = NewsManager.getLatestNews();
+      
+      if (!latestNews) return;
+      
+      const categoryColor = NewsManager.getCategoryColor(latestNews.category);
+      mainStory.innerHTML = `
+        <div class="story-image">
+          <span class="story-placeholder">${latestNews.image}</span>
+        </div>
+        <div class="story-content">
+          <div class="story-meta">
+            <span class="story-category" style="background: ${categoryColor}">${latestNews.categoryLabel}</span>
+            <span>${NewsManager.formatDate(latestNews.date)}</span>
+            <span>${latestNews.author}</span>
+          </div>
+          <h3 class="story-title">${latestNews.title}</h3>
+          <p class="story-excerpt">${latestNews.excerpt}</p>
+          <a href="${latestNews.link}" class="story-link">
+            Leer noticia completa
+          </a>
+        </div>
+      `;
+    }
 
-    // Render additional news
+    function renderSecondaryNews() {
+      const secondaryContainer = document.getElementById('secondary-stories');
+      const allNews = NewsManager.getAllNews();
+      const secondaryNews = allNews.slice(1, 4); // Tomar las siguientes 3 noticias más recientes
+      
+      secondaryContainer.innerHTML = '';
+      
+      secondaryNews.forEach(news => {
+        const categoryColor = NewsManager.getCategoryColor(news.category);
+        const article = document.createElement('article');
+        article.className = 'secondary-story';
+        article.innerHTML = `
+          <div class="story-meta">
+            <span class="story-category" style="background: ${categoryColor}">${news.categoryLabel}</span>
+            <span>${NewsManager.formatDate(news.date)}</span>
+          </div>
+          <h3 class="story-title">${news.title}</h3>
+          <p class="story-excerpt">${news.excerpt.substring(0, 120)}...</p>
+          <a href="${news.link}" class="story-link">
+            Leer más
+          </a>
+        `;
+        secondaryContainer.appendChild(article);
+      });
+    }
+
     function renderAdditionalNews() {
       const newsGrid = document.getElementById('news-grid');
+      const additionalNews = NewsManager.getAllNews().slice(4, 7); // Noticias 5-7
       
       additionalNews.forEach(news => {
+        const categoryColor = NewsManager.getCategoryColor(news.category);
         const newsCard = document.createElement('article');
         newsCard.className = 'news-card';
         newsCard.innerHTML = `
           <div class="story-image">
-            <span class="story-placeholder">📰</span>
+            <span class="story-placeholder">${news.image}</span>
           </div>
           <div class="story-content">
             <div class="story-meta">
-              <span class="story-category">${news.category}</span>
-              <span>${news.date}</span>
+              <span class="story-category" style="background: ${categoryColor}">${news.categoryLabel}</span>
+              <span>${NewsManager.formatDate(news.date)}</span>
+              <span>${news.author}</span>
             </div>
             <h3 class="story-title">${news.title}</h3>
             <p class="story-excerpt">${news.excerpt}</p>
             <a href="${news.link}" class="story-link">
-              Leer investigación
+              Leer noticia
             </a>
           </div>
         `;
@@ -496,6 +468,8 @@
       // Apply initial theme
       detectSystemTheme();
       
+      renderFeaturedNews();
+      renderSecondaryNews();
       renderAdditionalNews();
       
       // Add loading animation to buttons
