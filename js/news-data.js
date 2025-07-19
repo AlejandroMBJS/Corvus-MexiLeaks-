@@ -94,52 +94,6 @@ const newsDatabase = [
   }
 ];
 
-// Funciones utilitarias para manejo de noticias
-const NewsManager = {
-  getAllNews: function() {
-    return newsDatabase.sort((a, b) => new Date(b.date) - new Date(a.date));
-  },
-
-  getLatestNews: function() {
-    const sortedNews = this.getAllNews();
-    return sortedNews.length > 0 ? sortedNews[0] : null;
-  },
-
-  getFeaturedNews: function() {
-    return newsDatabase
-      .filter(news => news.featured)
-      .sort((a, b) => new Date(b.date) - new Date(a.date));
-  },
-
-  formatDate: function(dateString) {
-    const date = new Date(dateString);
-    const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Mexico_City' };
-    return date.toLocaleDateString('es-MX', options);
-  },
-
-  formatDateTime: function(dateString) {
-    const date = new Date(dateString);
-    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'America/Mexico_City' };
-    return date.toLocaleDateString('es-MX', options);
-  },
-
-  getCategoryColor: function() {
-    return '#666666';
-  },
-
-  getStats: function() {
-    const total = newsDatabase.length;
-    return {
-      total,
-      lastUpdate: this.getLatestNews()?.date
-    };
-  }
-};
-
-if (typeof window !== 'undefined') {
-  window.NewsManager = NewsManager;
-  window.newsDatabase = newsDatabase;
-}
 
 // Funciones utilitarias para manejo de noticias
 const NewsManager = {
