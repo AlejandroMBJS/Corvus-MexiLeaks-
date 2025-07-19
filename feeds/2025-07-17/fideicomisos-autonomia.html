@@ -37,18 +37,20 @@
                 <span class="brand-text">Corvus News</span>
             </a>
             <div class="nav-desktop">
-                <a href="../2025-07-17/" class="nav-link">Noticias</a>
-                <a href="../../../guia.html" class="nav-link">Guía Segura</a>
-                <a href="../../../contacto.html" class="nav-cta">Contacto</a>
+                <a href="./" class="nav-link">Noticias</a>
+                <a href="../../guia.html" class="nav-link">Guía Segura</a>
+                <a href="../../mirrors.html" class="nav-link">Mirrors</a>
+                <a href="../../contacto.html" class="nav-cta">Contacto</a>
             </div>
             <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Abrir menú">
                 <span id="menu-icon">☰</span>
             </button>
         </div>
         <div class="nav-mobile" id="nav-mobile">
-            <a href="../2025-07-17/" class="nav-link">Noticias</a>
-            <a href="../../../guia.html" class="nav-link">Guía Segura</a>
-            <a href="../../../contacto.html" class="nav-cta">Contacto</a>
+            <a href="./" class="nav-link">Noticias</a>
+            <a href="../../guia.html" class="nav-link">Guía Segura</a>
+            <a href="../../mirrors.html" class="nav-link">Mirrors</a>
+            <a href="../../contacto.html" class="nav-cta">Contacto</a>
         </div>
     </nav>
     <br/><br/><br/>
@@ -126,13 +128,24 @@
         </div>
     </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navMobile = document.querySelector('.nav-mobile');
-            menuToggle.addEventListener('click', () => {
-                navMobile.classList.toggle('show');
-            });
-        });
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('nav-mobile');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            mobileNav.classList.toggle('show');
+            menuIcon.textContent = mobileNav.classList.contains('show') ? '✕' : '☰';
+        }
     </script>
 </body>
 </html>
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('nav-mobile');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!mobileNav.contains(event.target) && !menuToggle.contains(event.target)) {
+                mobileNav.classList.remove('show');
+                document.getElementById('menu-icon').textContent = '☰';
+            }
+        });
