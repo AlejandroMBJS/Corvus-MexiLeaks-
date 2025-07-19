@@ -23,7 +23,7 @@ const newsDatabase = [
     author: 'Corvus',
     featured: true,
     tags: ['impunidad', 'iglesia', 'justicia'],
-    link: '2025-001/index.html',
+    link: 'feeds/2025-07-17/rivera-carrera.html',
     image: '⚖️'
   },
   {
@@ -47,7 +47,7 @@ const newsDatabase = [
     author: 'Corvus',
     featured: true,
     tags: ['crimen organizado', 'seguridad', 'México'],
-    link: '../feeds/crimen-organizado/2025-001/index.html',
+    link: 'feeds/2025-07-17/ovidio-guzman.html',
     image: '💀'
   },
   {
@@ -73,7 +73,7 @@ const newsDatabase = [
     author: 'Corvus',
     featured: true,
     tags: ['geopolítica', 'América Latina', 'comercio'],
-    link: '2025-001/index.html',
+    link: 'feeds/2025-07-17/aranceles-latam.html',
     image: '🌎'
   },
   {
@@ -105,7 +105,7 @@ const newsDatabase = [
     author: 'Corvus',
     featured: true,
     tags: ['soberanía', 'fideicomisos', 'finanzas'],
-    link: '2025-001/index.html',
+    link: 'feeds/2025-07-17/fideicomisos-autonomia.html',
     image: '🛡️'
   }
 ];
