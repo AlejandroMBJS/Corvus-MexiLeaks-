@@ -190,7 +190,6 @@ const NewsManager = {
 
     return {
       total,
-      categories,
       lastUpdate: this.getLatestNews()?.date
     };
   }
